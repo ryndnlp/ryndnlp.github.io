@@ -15,7 +15,7 @@
         display: none;
     }
 }
-@media only screen and (min-height: 630px) {
+@media only screen and (min-height: 620px) {
     .exc{
         display: block;
         overflow: auto;
@@ -36,11 +36,12 @@ body {
     text-decoration: none;
 }
 .container{
+    min-height: calc(100% - 40px);
     display: flex;
     flex-direction: column;
     height: inherit;
     color: white;
-    height: 100%;
+    height: calc(100vh - 60px);
 }
 .nav{
     justify-content: flex-end;
@@ -58,6 +59,7 @@ body {
     font-size: 18px;
     width: 10%;
     outline: none;
+    min-width: 100px;
 }
 .nav > a:before {
     content: "";
