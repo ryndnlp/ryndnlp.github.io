@@ -39,7 +39,6 @@ body {
     min-height: calc(100% - 40px);
     display: flex;
     flex-direction: column;
-    height: inherit;
     color: white;
     height: calc(100vh - 60px);
 }
