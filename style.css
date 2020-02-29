@@ -5,7 +5,7 @@
 .exc{
     display: none;
 }
-@media only screen and (max-width: 762px) {
+@media only screen and (max-width: 770px) {
     .exc{
         display: block;
         overflow: auto;
