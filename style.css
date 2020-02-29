@@ -26,8 +26,8 @@
     }
 }
 html{
-    height: 100vh;
-    min-height: 100vh;
+    height: 100%;
+    min-height: 100%;
 }
 body {
     font-family: Roboto, serif;
@@ -35,6 +35,7 @@ body {
     height: 100%;
     min-height: 100%;
     text-decoration: none;
+    border: 1px solid red;
 }
 .container{
     min-height: calc(100% - 40px);
