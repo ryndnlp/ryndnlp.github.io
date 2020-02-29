@@ -85,6 +85,7 @@ a:hover{
     display: flex;
     flex-direction: row;
     background-image: url("wp.jpg");
+    background-repeat: no-repeat;
     box-sizing: border-box;
    
 }
