@@ -16,6 +16,16 @@
         display: none;
     }
 }
+@media only screen and (max-height: 550px) {
+    .exc{
+        display: block;
+        overflow: auto;
+        margin: 0.4in;
+    }
+    body>div:not(.exc){
+        display: none;
+    }
+}
 html{
     height: 100%;
 }
