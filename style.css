@@ -35,7 +35,7 @@ body {
     height: 100%;
     min-height: 100%;
     text-decoration: none;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 .container{
     min-height: calc(100% - 40px);
