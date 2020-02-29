@@ -9,7 +9,8 @@
 @media only screen and (max-width: 760px) {
     .exc{
         display: block;
-        min-width: 760px;
+        overflow: auto;
+        margin: 5px;
     }
     body>div:not(.exc){
         display: none;
