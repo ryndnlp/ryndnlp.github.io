@@ -88,7 +88,7 @@ a:hover{
     background-image: url("wp.jpg");
     background-repeat: no-repeat;
     box-sizing: border-box;
-   
+    background-size: cover;
 }
 .container1 > div{
     margin: auto;
