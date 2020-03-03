@@ -114,14 +114,20 @@ a:hover{
 .btn#blue{
     background-color: #3498db;
     color: white;
-    font-size: 40px;
+    border: 2px white solid;
+    font-size: 20px;
     padding: 8px;
     box-sizing: border-box;
+    border-radius: 30px;
+    transition: all 0.3s ease 0s;
+    
 }
 
 .btn#blue:hover{
     color: #3498db;
     background-color: white;
+    transform: translateY(-7px);
+    
 }
 .section1{
     display: flex;
@@ -155,5 +161,5 @@ a:hover{
     height: 100%;
 }
 .space{
-    margin-top: 30px;
+    margin-top: 15px;
 }
