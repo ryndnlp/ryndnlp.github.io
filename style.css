@@ -28,6 +28,7 @@
 html{
     height: 100%;
     min-height: 100%;
+
 }
 body {
     font-family: Roboto, serif;
@@ -35,16 +36,11 @@ body {
     height: 100%;
     min-height: 100%;
     text-decoration: none;
-    /*border: 1px solid red;*/
-}
-.container{
-    min-height: calc(100% - 40px);
-    display: flex;
-    flex-direction: column;
-    color: white;
-    height: calc(100vh - 60px);
 }
 .nav{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
     justify-content: flex-end;
     background-color: #16a085;
     height: 40px;
@@ -80,21 +76,37 @@ a:hover{
     color: #16a085;
     background-color: white;
 }
-
+.container{
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    min-height: calc(100% - 40px);
+    display: grid;
+    color: white;
+    height: calc(100vh - 60px);
+    grid-template-rows: 7fr 1fr;
+    text-align: center;
+}
+.container > div{
+    /*border: 1px red solid;*/
+}
 .container1{
-    flex: 10;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     background-image: url("wp.jpg");
     background-repeat: no-repeat;
     box-sizing: border-box;
     background-size: cover;
+    /*border: 1px yellow solid;*/
+    height: 100%;
 }
+
 .container1 > div{
-    margin: auto;
-    align-content: center;
-    text-align: center;
-    padding: 40px;
+    box-sizing: border-box;
+    height: 100%;
+   /* border: 1px white solid;*/
+   
+    
 }
 
 .img-circular{
@@ -125,29 +137,35 @@ a:hover{
     color: #3498db;
     border: 3px white solid;
 }
-.section2 > h1{
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section2{
+    display: table;
+    
+}
+.section2 > span{
+    display: table-cell;
+    vertical-align: middle;
+}
+.section2 > span > h1{
     font-size: 50px;
 }
-.subsec1{
-    margin-top: 30px;
-}
 .container2{
-    flex: 1;
     background-color: #2c3e50;
-    text-align: center;
-}
-.sec3{
     height: 100%;
-    overflow: hidden;
+    
 }
-.sec3 > h1{
-    height: 100%;
-    font-size: 30px;
-    outline: none;
+.subsec1 > div{
+
 }
-.sec3 > h1:before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
+.subsec1{
+    display: flex;
+    align-items: center;
+    /*border: 1px yellow solid;*/
+    align-items: center;
+    justify-content: center;
     height: 100%;
 }
