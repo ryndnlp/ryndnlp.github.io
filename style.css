@@ -5,58 +5,38 @@
 .exc{
     display: none;
 }
-@media only screen and (max-width: 770px) {
-    .exc{
-        display: block;
-        overflow: auto;
-        margin: 0.4in;
-    }
-    body>div:not(.exc){
-        display: none;
-    }
-}
-@media only screen and (min-height: 620px) {
-    .exc{
-        display: block;
-        overflow: auto;
-        margin: 0.4in;
-    }
-    body>div:not(.exc){
-        display: none;
-    }
-}
+
 html{
     height: 100%;
     min-height: 100%;
 
 }
 body {
-    font-family: Roboto, serif;
+    font-family: 'Roboto';
     background-color: white;
     height: 100%;
     min-height: 100%;
     text-decoration: none;
 }
 .nav{
+    font-family: 'Roboto Condensed';
     z-index: 1;
     position: fixed;
     width: 100%;
     justify-content: flex-end;
     background-color: #16a085;
     height: 40px;
-    text-align: center;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
     min-height: 40px;
 }
 .nav > a{
-    min-width: 80px;
     height: 100%;
     font-size: 18px;
     width: 10%;
     outline: none;
-    min-width: 100px;
+    min-width: 80px;
 }
 .nav > a:before {
     content: "";
@@ -128,14 +108,20 @@ a:hover{
     font-family: "Lato";
     
 }
+.btn{
+    border: 0;
+}
 .btn#blue{
-    border: 3px #3498db solid;
+    background-color: #3498db;
     color: white;
     font-size: 40px;
+    padding: 8px;
+    box-sizing: border-box;
 }
+
 .btn#blue:hover{
     color: #3498db;
-    border: 3px white solid;
+    background-color: white;
 }
 .section1{
     display: flex;
@@ -168,4 +154,7 @@ a:hover{
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+.space{
+    margin-top: 30px;
 }
