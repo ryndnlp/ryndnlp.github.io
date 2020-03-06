@@ -115,7 +115,7 @@ a:hover{
     color: #27ae60;
     background-color: #f5f6fa;
     transform: translateY(-7px);
-   
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     
 }
 .section2{
@@ -125,8 +125,8 @@ a:hover{
 
 .container2{
     display: grid;
-    grid-template-columns: 1fr 1fr;
     box-sizing: border-box;
+    margin: 2em;
 }
 .img-circular{
     width: 250px;
@@ -134,7 +134,7 @@ a:hover{
     border-radius: 100%;
     background: #eee no-repeat center;
     background-size: cover;
-   
+    margin: 0rem 1rem 1rem 1rem;
 }
 
 #profile{
@@ -144,10 +144,37 @@ a:hover{
 .container2 > div{
     
 }
-.left{
-    
+.left > h1{
+    font-weight: 600;
+    text-decoration: underline;
+    margin: 0rem 2rem 2rem 0rem;
 }
-.right > pre{
-    font-family: inherit;
-    white-space: pre;
+.left{
+    justify-self: start;
+    grid-column: 2/3;
+}
+.right{
+    grid-column: 4/6;
+    font-size: 20px;
+    align-self: center;
+    border: 2px #2980b9 solid;
+}
+.left > h1{
+    scroll-behavior: smooth;
+}
+ul {
+    list-style: none;
+    display: table;
+}
+  
+li {
+    padding: 1rem;
+    display: table-row;
+}
+  
+b {
+    display: table-cell;
+    padding-top: 1rem;
+    padding-right: 1em;
+    font-style: normal;
 }
