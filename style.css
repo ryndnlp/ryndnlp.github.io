@@ -70,8 +70,8 @@ a:hover{
     color: white;
     background-color: #27ae60;
     text-align: center;
-    padding-top: 7rem;
-    padding-bottom: 4rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
     height: 100vh;
     display: table;
 }
@@ -154,7 +154,6 @@ button::-moz-focus-inner {
     margin-left: 2rem;
 }
 
-
 .right{
     box-sizing: border-box;
     grid-column: 3/5;
@@ -164,6 +163,9 @@ button::-moz-focus-inner {
 }
 .right > :first-child{
     font-size: 3rem;
+}
+.right > p#third{
+    margin-top: 1rem;
 }
 
 
