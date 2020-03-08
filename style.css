@@ -7,16 +7,7 @@
 .exc{
     display: none;
 }
-@media only screen and (max-width: 770px) {
-    .exc{
-        display: block;
-        overflow: auto;
-        margin: 0.4in;
-    }
-    body>div:not(.exc){
-        display: none;
-    }
-}
+
 @media only screen and (min-height: 620px) {
     .exc{
         display: block;
@@ -27,15 +18,15 @@
         display: none;
     }
 }
-h1{
-    margin-bottom: 0.75rem;
-    margin-top: 1rem;
-}
 body, html {
     font-family: 'Roboto';
     background-color: white;
     text-decoration: none;
-    
+    scroll-behavior: smooth;   
+}
+.container > h1{
+    margin-bottom: 0.75rem;
+    margin-top: 1rem;
 }
 .nav{
     font-family: 'Roboto Condensed';
@@ -82,10 +73,9 @@ a:hover{
     padding-bottom: 6rem;
     height: 100vh;
     display: table;
+    
 }
-.container1 > span{
-    display: table-cell;
-}
+
 #logo{
     width: 250px;
     height: 250px;
@@ -101,6 +91,11 @@ a:hover{
 .btn{
     border: 0;
 }
+
+button::-moz-focus-inner {
+    border: 0;
+}
+    
 .btn#vm{
     color: white;
     border: 2px white solid;
@@ -108,15 +103,13 @@ a:hover{
     padding: 8px;
     border-radius: 30px;
     transition: all 0.3s ease 0s;
-
 }
 
 .btn#vm:hover{
     color: #27ae60;
     background-color: #f5f6fa;
     transform: translateY(-7px);
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);    
 }
 .section2{
     display: table;
@@ -127,6 +120,8 @@ a:hover{
     display: grid;
     box-sizing: border-box;
     margin: 2em;
+    font-family: 'Source Sans Pro';
+    
 }
 .img-circular{
     width: 250px;
@@ -134,47 +129,35 @@ a:hover{
     border-radius: 100%;
     background: #eee no-repeat center;
     background-size: cover;
-    margin: 0rem 1rem 1rem 1rem;
+    margin: 1rem 0rem 1rem 0rem;
 }
 
 #profile{
     background-image: url("profile1.jpg");
     border: 5px yellow solid;
 }
-.container2 > div{
-    
-}
-.left > h1{
-    font-weight: 600;
-    text-decoration: underline;
-    margin: 0rem 2rem 2rem 0rem;
-}
 .left{
+    flex-direction: row;
     justify-self: start;
     grid-column: 2/3;
 }
+.left > div{
+    border: 1px black solid;
+}
+.left > h1{
+    font-weight: 600;
+    
+    
+}
+
+
 .right{
+    box-sizing: border-box;
     grid-column: 4/6;
     font-size: 20px;
     align-self: center;
-    border: 2px #2980b9 solid;
+    margin-top: 3rem;
+    padding: 3rem;
 }
-.left > h1{
-    scroll-behavior: smooth;
-}
-ul {
-    list-style: none;
-    display: table;
-}
-  
-li {
-    padding: 1rem;
-    display: table-row;
-}
-  
-b {
-    display: table-cell;
-    padding-top: 1rem;
-    padding-right: 1em;
-    font-style: normal;
-}
+
+
