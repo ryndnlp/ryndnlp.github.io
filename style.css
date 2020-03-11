@@ -144,8 +144,9 @@ button::-moz-focus-inner {
     flex-direction: row;
     justify-self: start;
     grid-column: 1/3;
-    margin-left: 2rem;
+    margin-left: 3rem;
     align-self: center;
+    
 }
 .container2 > div{
     /*border: 1px black solid;*/
@@ -162,6 +163,7 @@ button::-moz-focus-inner {
     align-self: center;
     margin: 3rem;
     text-align: justify;
+    padding-right: 0rem;
 }
 .right > :first-child{
     font-size: 3rem;
