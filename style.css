@@ -8,7 +8,7 @@
     display: none;
 }
 
-@media only screen and (min-height: 620px) {
+@media only screen and (max-width: 767px) {
     .exc{
         display: block;
         overflow: auto;
@@ -193,5 +193,16 @@ button::-moz-focus-inner {
 .left > p{
     margin-top: 1rem;
     font-size: 20px;
+}
+.footer{
+    background-color: #34495e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    align-items: center;
+    font-variant: small-caps;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
