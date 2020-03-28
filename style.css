@@ -124,9 +124,9 @@ button::-moz-focus-inner {
 .container2{
     display: grid;
     box-sizing: border-box;
-    margin: 2em;
+    padding: 2em;
     font-family: 'Source Sans Pro';
-    
+    height: 100vh;
 }
 .img-circular{
     width: 300px;
@@ -160,7 +160,13 @@ button::-moz-focus-inner {
     margin-top: 0.5rem;
 }
 
-.h1wrap{
+.h1wrap#left{
+    grid-column: 1/5;
+    margin-left: 2rem;
+    margin-right: 3rem;
+    text-align: left;
+}
+.h1wrap#right{
     grid-column: 1/5;
     margin-left: 2rem;
     margin-right: 3rem;
