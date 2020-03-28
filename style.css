@@ -67,14 +67,15 @@ a:hover{
     background-color: white;
 }
 .container1{
-    width: 100%;
     color: white;
     background-color: #2ecc71;
     text-align: center;
-    padding-top: 5rem;
     height: 100vh;
-    display: table;
+    display: flex;
+    flex-direction: column;
     border-bottom: 0.3rem #26a55b dashed;
+    justify-content: center;
+    align-items: center;
 }
 
 #logo{
