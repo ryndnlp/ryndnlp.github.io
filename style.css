@@ -40,6 +40,7 @@ body, html {
     display: flex;
     flex-direction: row;
     min-height: 40px;
+    background-size: cover;
 }
 .nav > a{
     font-size: 18px;
@@ -67,15 +68,15 @@ a:hover{
     background-color: white;
 }
 .container1{
+    width: 100%;
     color: white;
     background-color: #2ecc71;
     text-align: center;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: table;
+    padding-top: 4.5rem;
     border-bottom: 0.3rem #26a55b dashed;
-    justify-content: center;
-    align-items: center;
+    padding-bottom: 2rem;
 }
 
 #logo{
@@ -127,7 +128,6 @@ button::-moz-focus-inner {
     box-sizing: border-box;
     padding: 2em;
     font-family: 'Source Sans Pro';
-    height: 100vh;
 }
 .img-circular{
     width: 300px;
@@ -189,6 +189,7 @@ button::-moz-focus-inner {
 }
 .right > :first-child{
     font-size: 3rem;
+    text-align: left;
 }
 .right > .second{
     font-size: 17px;
