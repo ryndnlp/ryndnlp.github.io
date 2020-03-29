@@ -25,9 +25,8 @@ body, html {
     scroll-behavior: smooth;   
 }
 .container1 > h1{
-    margin-bottom: 0.5rem;
     margin-top: 0.5rem;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 .nav{
     font-family: 'Roboto Condensed';
@@ -70,15 +69,18 @@ a:hover{
 .container1{
     width: 100%;
     color: white;
+    display: table;
     background-color: #2ecc71;
     text-align: center;
     height: 100vh;
-    display: table;
-    padding-top: 4.5rem;
-    border-bottom: 0.3rem #26a55b dashed;
+    padding-top: 3rem;
     padding-bottom: 2rem;
+    border-bottom: 0.3rem #26a55b dashed;
 }
-
+span{
+    display: table-cell;
+    vertical-align: middle;
+}
 #logo{
     width: 250px;
     height: 250px;
@@ -102,7 +104,7 @@ button::-moz-focus-inner {
 .btn#vm{
     color: white;
     border: 2px white solid;
-    font-size: 20px;
+    font-size: 1.3rem;
     padding: 8px;
     border-radius: 30px;
     transition: all 0.3s ease 0s;
@@ -115,17 +117,16 @@ button::-moz-focus-inner {
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);    
 }
 .quote{
-    margin-top: 2.25rem;
     font-family: 'Garamond';
     font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
-.quote:last-child::after{
+.quote:after{
     content: "\2015 Ryan Daniel\2015";
 }
 
 .container2{
     display: grid;
-    box-sizing: border-box;
     padding: 2em;
     font-family: 'Source Sans Pro';
 }
@@ -179,7 +180,6 @@ button::-moz-focus-inner {
 }
 
 .right{
-    box-sizing: border-box;
     grid-column: 3/5;
     font-size: 20px;
     align-self: center;
