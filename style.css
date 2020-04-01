@@ -330,10 +330,10 @@ button::-moz-focus-inner {
     }
     .wrapper{
         height: auto;
-        min-width: 450px;
+        min-width: 300px;
         display: flex;
         flex-direction: column;
-        width: 70%;
+        width: 80%;
         margin: auto;
         border-top: 4px white solid;
     }
