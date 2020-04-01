@@ -80,6 +80,7 @@ button::-moz-focus-inner {
     background-color: #f5f6fa;
 }
 .quote{
+    margin-top: 0.5rem;
     font-family: 'Garamond';
     font-size: 1.5rem;
     margin-bottom: 1rem;
