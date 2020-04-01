@@ -364,6 +364,6 @@ button::-moz-focus-inner {
     }
     .right{
         padding: 0;
-        margin: 1rem 0 0 2rem;
+        margin: 1rem 2rem 0 2rem;
     }
 }
