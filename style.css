@@ -67,7 +67,7 @@ span{
 }
 
 
-.btn, .nav > div {
+.btn{
     background-color: inherit;
     cursor: pointer;
     font-family: "Lato";
@@ -86,7 +86,7 @@ button::-moz-focus-inner {
     border: 2px white solid;
     font-size: 0.8rem;
     padding: 0.7rem 1.6rem;
-    transition: all 0.3s ease 0s;
+    transition: all 0.3s ease-out 0s;
 }
 
 .btn#vm:hover{
