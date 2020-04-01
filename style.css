@@ -197,14 +197,15 @@ button::-moz-focus-inner {
 }
 .footer > h1{
     display: inline-block;
-    min-width: 300px;
+    margin-left: 2rem;
+    margin-right: 2rem;
     text-align: center;
 }
 .wrapper{
     text-align: left;
     background-color: #222;
     display: inline-block;
-    min-width: 800px;
+    min-width: 651px;
     list-style-type: none;
     overflow: hidden;
     height: 150px;
