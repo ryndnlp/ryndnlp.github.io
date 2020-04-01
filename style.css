@@ -198,9 +198,10 @@ button::-moz-focus-inner {
 .footer > h1{
     display: inline-block;
     min-width: 300px;
-    margin-left: 3rem;  
+    text-align: center;
 }
 .wrapper{
+    text-align: left;
     background-color: #222;
     display: inline-block;
     min-width: 800px;
