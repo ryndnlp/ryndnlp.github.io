@@ -184,8 +184,7 @@ button::-moz-focus-inner {
 .footer{
     background-color: #222;
     color: white;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
     display: flex;
     align-items: center;
 }
@@ -197,9 +196,9 @@ button::-moz-focus-inner {
 }
 .footer > h1{
     display: inline-block;
-    margin-left: 2rem;
     margin-right: 2rem;
     text-align: center;
+    margin-left: 2em;
 }
 .wrapper{
     text-align: left;
@@ -222,7 +221,6 @@ button::-moz-focus-inner {
     border-left: 4px white solid;
     color: black;
     transition: all 0.5s ease-in-out 0.1s;
-    
 }
 
 .tab:hover{
