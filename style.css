@@ -28,34 +28,7 @@ body, html {
     margin-top: 0.5rem;
     font-size: 3rem;
 }
-/*
-.nav{
-    font-family: 'Roboto Condensed';
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    justify-content: flex-end;
-    background-color: #16a085;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    min-height: 40px;
-    background-size: cover;
-}
-.nav > a{
-    font-size: 18px;
-    width: 12%;
-    min-width: 12%;
-    outline: none;
-    min-width: 80px;
-}
-.nav > a::before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
-}
-*/
+
 a{
     background-color: inherit;
     color: white;
@@ -156,9 +129,7 @@ button::-moz-focus-inner {
     margin-bottom: 0.5rem;
     padding: 1rem 0rem 1rem 0rem;
 }
-.container2 > div{
-    /*border: 1px black solid;*/
-}
+
 .h1wrap > h1{
     font-size: 2rem;
     display: inline-block;
@@ -179,6 +150,7 @@ button::-moz-focus-inner {
     margin-right: 2rem;
     grid-column: 1/5;
     text-align: right;
+    margin-top: 1rem;
 }
 
 .container2 > .center{
@@ -208,15 +180,149 @@ button::-moz-focus-inner {
     margin-top: 1rem;
     font-size: 20px;
 }
+
 .footer{
-    background-color: black;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222;
     color: white;
-    align-items: center;
-    font-variant: small-caps;
     padding-top: 1rem;
     padding-bottom: 1rem;
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
+@font-face{
+    font-family: 'Genericons';
+    src: url('genericons/genericons-regular-webfont.woff') format('woff'),
+         url('genericons/genericons-regular-webfont.eot') format('truetype');
+}
+.footer > h1{
+    display: inline-block;
+    min-width: 300px;
+    margin-left: 3rem;  
+}
+.wrapper{
+    background-color: #222;
+    display: inline-block;
+    min-width: 800px;
+    list-style-type: none;
+    overflow: hidden;
+    height: 150px;
+    font-size: 0;
+}
+
+.tab{
+    display: inline-block;
+    height: 150px;
+    background-color: #222;
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+    border-left: 4px white solid;
+    color: black;
+    transition: all 0.5s ease-in-out 0.1s;
+    
+}
+
+.tab:hover{
+    width: 350px;
+    border: 0;
+    transition: all 0.5s ease-in-out 0.4s;
+}
+
+.tab > .content{
+    background-color: white;
+    height: 150px;
+    width: 290px;
+    margin-left: 60px;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.tab > .content > h1{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.tab > .content > p{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    
+}
+.tab:hover > .sm a::before{
+    margin-left: -3.8rem;
+}
+.tab:hover > .sm a::after{
+    margin-left: 0rem;
+}
+.sm a::after, .sm a::before{
+    transition: all 0.5s ease-in-out 0.1s;
+    width: 60px;
+    height: 150px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: normal 2rem Genericons;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    
+}
+.sm a::after{
+    margin-left: 60px;
+    font-size: 3rem;
+}
+
+.sm a::after, .sm a::before{
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 300;
+}
+.line a::after, .line a::before{
+    content: '\f3c0';
+    
+}
+
+.line a::after{
+    background-color: #00c300;
+}
+
+.instagram a::after, .instagram a::before{
+    content: '\f16d';
+}
+
+.instagram a::after{
+    background-image: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #feda77, #f58529);
+}
+
+.twitter a::after, .twitter a::before{
+    content: '\f099';
+}
+
+.twitter a::after{
+    background-color: #38a1f3;
+}
+.linkedin a::after, .linkedin a::before{
+    content: '\f0e1';
+}
+
+.linkedin a::after{
+    background-color: #0e76a8;
+}
+
+.github a::after, .github a::before{
+    content: '\f09b';
+}
+
+.github a::after{
+    background-color: #333;
+}
+
+.gitlab a::after, .gitlab a::before{
+    content: '\f296';
+}
+
+.gitlab a::after{
+    background-color: #292961;
+}
