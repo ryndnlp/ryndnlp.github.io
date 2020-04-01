@@ -4,20 +4,6 @@
     box-sizing: border-box;
     
 }
-.exc{
-    display: none;
-}
-
-@media only screen and (max-width: 767px) {
-    .exc{
-        display: block;
-        overflow: auto;
-        margin: 0.4in;
-    }
-    body>div:not(.exc){
-        display: none;
-    }
-}
 body, html {
     font-family: 'Roboto';
     background-color: white;
@@ -159,7 +145,7 @@ button::-moz-focus-inner {
 
 .right{
     grid-column: 3/5;
-    font-size: 20px;
+    font-size: 1.3rem;
     align-self: center;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -204,11 +190,12 @@ button::-moz-focus-inner {
     text-align: left;
     background-color: #222;
     display: inline-block;
-    min-width: 651px;
+    min-width: 767px;
     list-style-type: none;
     overflow: hidden;
     height: 150px;
     font-size: 0;
+    font-family: 'Lato';
 }
 
 .tab{
@@ -226,7 +213,8 @@ button::-moz-focus-inner {
 .tab:hover{
     width: 350px;
     border: 0;
-    transition: all 0.5s ease-in-out 0.4s;
+    transition: all 0.5s ease-in-out 0.1s;
+    border-left: 4px white solid;
 }
 
 .tab > .content{
@@ -237,10 +225,11 @@ button::-moz-focus-inner {
     position: relative;
     padding-top: 0.5rem;
     padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .tab > .content > h1{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: 2rem;
 }
 
@@ -248,7 +237,7 @@ button::-moz-focus-inner {
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1rem;
-    
+    text-align: justify;
 }
 .tab:hover > .sm a::before{
     margin-left: -3.8rem;
@@ -325,4 +314,56 @@ button::-moz-focus-inner {
 
 .gitlab a::after{
     background-color: #292961;
+}
+@media only screen and (max-width: 767px){
+    .footer > h1{
+        display: block;
+        margin-bottom: 1rem;
+    }
+    .footer{
+        display: block;
+    }
+    .tab{
+        display: block;
+        width: 100%;
+        border-bottom: 4px #222 solid;
+    }
+    .wrapper{
+        height: auto;
+        min-width: 450px;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin: auto;
+        border-top: 4px white solid;
+    }
+    .tab > .content{
+        width: 100%;
+        padding-right: 4.5rem;
+    }
+    .tab:hover{
+        width: 100%;
+        border-bottom: 4px #222 solid;
+    }
+    .container2{
+        display: block;
+    }
+    .left#first{
+        float: left;
+        display: block;
+        padding: 0;
+        margin-top: 2rem;
+    }
+    .h1wrap{
+        clear: left;
+    }
+    .img-circular{
+        display: inline-block;
+        border-radius: 0;
+        margin-right: 2rem;
+    }
+    .right{
+        padding: 0;
+        margin: 1rem 0 0 2rem;
+    }
 }
