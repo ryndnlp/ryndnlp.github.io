@@ -130,6 +130,7 @@ button::-moz-focus-inner {
 }
 
 .container2{
+    background-color: #f2f2f2;
     display: grid;
     padding: 2em;
     font-family: 'Source Sans Pro';
@@ -144,7 +145,6 @@ button::-moz-focus-inner {
 
 #profile{
     background-image: url("profile1.jpg");
-    border: 5px yellow solid;
 }
 .left{
     flex-direction: row;
@@ -159,23 +159,25 @@ button::-moz-focus-inner {
 .container2 > div{
     /*border: 1px black solid;*/
 }
-.h1wrap > h1, .container2 > h1{
-    border-bottom: 3px #3498db solid;
+.h1wrap > h1{
+    font-size: 2rem;
     display: inline-block;
-    margin-left: 2rem;
     margin-top: 0.5rem;
+    color: black;
+    border: 1px #bdc3c7 solid;
+    background-color: white;
+    padding: 0.8rem;
+    box-shadow: 0.5rem 0.5rem #636e72;
 }
 
 .h1wrap#left{
-    grid-column: 1/5;
     margin-left: 2rem;
-    margin-right: 3rem;
+    grid-column: 1/5;
     text-align: left;
 }
 .h1wrap#right{
+    margin-right: 2rem;
     grid-column: 1/5;
-    margin-left: 2rem;
-    margin-right: 3rem;
     text-align: right;
 }
 
@@ -207,7 +209,7 @@ button::-moz-focus-inner {
     font-size: 20px;
 }
 .footer{
-    background-color: #34495e;
+    background-color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     align-items: center;
