@@ -346,16 +346,20 @@ button::-moz-focus-inner {
         border-bottom: 4px #222 solid;
     }
     .container2{
-        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+    .right > :first-child{
+        margin: 0;
+        padding: 0;
     }
     .left#first{
-        float: left;
         display: block;
         padding: 0;
         margin-top: 2rem;
-    }
-    .h1wrap{
-        clear: left;
+        align-self: center;
+        justify-self: middle;
+        margin-bottom: 0;
     }
     .img-circular{
         display: inline-block;
@@ -365,5 +369,8 @@ button::-moz-focus-inner {
     .right{
         padding: 0;
         margin: 1rem 2rem 0 2rem;
+    }
+    .left#last{
+        align-self: flex-start;
     }
 }
