@@ -320,6 +320,8 @@ button::-moz-focus-inner {
     .footer > h1{
         display: block;
         margin-bottom: 1rem;
+        text-align: center;
+        margin-left: 2rem;
     }
     .footer{
         display: block;
