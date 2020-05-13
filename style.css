@@ -35,7 +35,7 @@ a:hover{
     linear-gradient(
       rgba(0, 0, 0, 0.9), 
       rgba(0, 0, 0, 0.9)
-    ), url("../resources/bg.jpg");
+    ), url("resources/bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -104,7 +104,7 @@ button::-moz-focus-inner {
 }
 
 #profile{
-    background-image: url("../resources/profile1.jpg");
+    background-image: url("resources/profile1.jpg");
 }
 .left{
     flex-direction: row;
