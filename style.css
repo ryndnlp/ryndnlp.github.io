@@ -78,9 +78,10 @@ button::-moz-focus-inner {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
+/*
 .quote::after{
     content: "\2015 Ryan Daniel\2015";
-}
+}*/
 
 .container2{
     background-color: #f2f2f2;
@@ -271,14 +272,6 @@ button::-moz-focus-inner {
 .instagram a::after{
     background-image: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #feda77, #f58529);
 }
-
-/*.twitter a::after, .twitter a::before{
-    content: '\f099';
-}
-
-.twitter a::after{
-    background-color: #38a1f3;
-}*/
 .linkedin a::after, .linkedin a::before{
     content: '\f0e1';
 }
@@ -331,6 +324,11 @@ button::-moz-focus-inner {
 .stuff > a:hover:first-child{
     background-color: #acacac;
 }
+.disabled{
+    pointer-events: none;
+    cursor: default;
+}
+
 @media only screen and (max-width: 900px){
     .footer > h1{
         display: block;
