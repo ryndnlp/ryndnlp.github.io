@@ -22,10 +22,6 @@ a{
     text-decoration: none;
     
 }
-a:hover{
-    color: #16a085;
-    background-color: white;
-}
 .container1{
     color: white;
     display: table;
@@ -57,9 +53,6 @@ span{
     background-color: inherit;
     cursor: pointer;
     font-family: "Lato";
-    
-}
-.btn{
     border: 0;
 }
 
@@ -185,10 +178,11 @@ button::-moz-focus-inner {
     margin-left: 2em;
 }
 .wrapper{
+    display: flex;
     text-align: left;
     background-color: #222;
     display: inline-block;
-    min-width: 767px;
+    min-width: 500px;
     list-style-type: none;
     overflow: hidden;
     height: 150px;
@@ -278,13 +272,13 @@ button::-moz-focus-inner {
     background-image: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #feda77, #f58529);
 }
 
-.twitter a::after, .twitter a::before{
+/*.twitter a::after, .twitter a::before{
     content: '\f099';
 }
 
 .twitter a::after{
     background-color: #38a1f3;
-}
+}*/
 .linkedin a::after, .linkedin a::before{
     content: '\f0e1';
 }
@@ -308,15 +302,47 @@ button::-moz-focus-inner {
 .gitlab a::after{
     background-color: #292961;
 }
-@media only screen and (max-width: 767px){
+
+.stuff{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin: 1rem 2rem 0 2rem;
+    grid-column: 1/5;
+}
+
+.stuff > a{
+    border: 1px teal solid;
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    vertical-align: bottom;
+    display: table-cell;
+    background-color: #dddddd;
+    background-image: url(resources/vue.png);
+    background-repeat: no-repeat;
+    background-position: center 20px;
+    background-size: 80%;
+    padding-top: 210px;
+    text-align: center;
+    color: black;
+}
+.stuff > a:hover:first-child{
+    background-color: #acacac;
+}
+@media only screen and (max-width: 900px){
     .footer > h1{
         display: block;
         margin-bottom: 1rem;
         text-align: center;
         margin-left: 2rem;
     }
-    .footer{
+    .footer, .stuff > a{
         display: block;
+    }
+    .stuff > a:not(:last-child){
+        margin-bottom: 2rem;
     }
     .tab{
         display: block;
@@ -340,7 +366,7 @@ button::-moz-focus-inner {
         width: 100%;
         border-bottom: 4px #222 solid;
     }
-    .container2{
+    .container2, .stuff{
         display: flex;
         flex-direction: column;
     }
