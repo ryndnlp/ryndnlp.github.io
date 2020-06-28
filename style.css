@@ -4,197 +4,164 @@
     box-sizing: border-box;
     
 }
-body, html {
+html{
     font-family: 'Roboto';
-    background-color: white;
     text-decoration: none;
-    scroll-behavior: smooth;   
+    scroll-behavior: smooth; 
 }
-.container1 > h1{
-    margin-top: 0.5rem;
+body{
+    background-color: #03dac5;
+}
+#type-animation{
+    font-size: 2.5rem;
+    display: inline-block;
+}
+#cursor{
+    display: inline-block;
     font-size: 3rem;
 }
-
+#logo{
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+}
+#landing{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("./resources/ryan.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 100%;
+}
 a{
     background-color: inherit;
-    color: white;
     text-align: center;
     text-decoration: none;
-    
 }
+#name{
+    color: #03dac5;
+    display: inline-block;
+}
+#intro{
+    margin-bottom: rem;
+}
+
 .container1{
     color: white;
     display: table;
     width: 100%;
     height: 100vh;
-    background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.9), 
-      rgba(0, 0, 0, 0.9)
-    ), url("resources/bg.jpg");
+    background-color: #121212; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    -webkit-clip-path: polygon(0 100%, 0 0, 75% 0, 25% 100%);
+    clip-path: polygon(0 100%, 0 0, 75% 0, 25% 100%);
 }
-span{
+.container1 > .inner{
     display: table-cell;
     vertical-align: middle;
+    text-align: left;
 }
-#logo{
-    width: 250px;
-    height: 250px;
-}
-
-
 .btn{
     background-color: inherit;
     cursor: pointer;
-    font-family: "Lato";
     border: 0;
+    display: block;
 }
 
 button::-moz-focus-inner {
     border: 0;
 }
     
-.btn#vm{
+#vm{
     color: white;
     border: 2px white solid;
     font-size: 0.8rem;
     padding: 0.7rem 1.6rem;
     transition: all 0.3s ease-out 0s;
+    margin-top: 2rem;
 }
 
 .btn#vm:hover{
-    color: #000000;
+    color: #121212;
     background-color: #f5f6fa;
 }
-.quote{
-    margin-top: 0.5rem;
-    font-family: 'Garamond';
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-/*
-.quote::after{
-    content: "\2015 Ryan Daniel\2015";
-}*/
 
 .container2{
+    background-color: #121212;
+    padding: 2rem 10rem;
+    text-align: center;
+}
+.container2 > p{
+    border-top: 2px #03dac5 solid;
+    border-bottom: 2px #03dac5 solid;
+    font-size: 1.5rem;
+    color: #f2f2f2;
+    padding: 2rem 0;
+}
+.stuffs{
+    display: flex;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+.stuffs > a{
+    color: #03dac5;
+    background-color: #121212;
+    border: 1px #f2f2f2 solid;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem;
+    box-shadow: 0 0 10px #03dac5;
+    background-size: contain;
+}
+.stuffs a::before{
+    font-family: "Font Awesome 5 Free";
+    content: '\f121';
+    font-size: 8rem;
+    font-weight: 700;
+}
+.stuffs > a:hover{
+    color: #03dac5;
     background-color: #f2f2f2;
-    display: grid;
-    padding: 2em;
-    font-family: 'Source Sans Pro';
 }
-.img-circular{
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-    background: #eee no-repeat center;
-    background-size: cover;
-}
-
-#profile{
-    background-image: url("resources/profile1.jpg");
-}
-.left{
-    flex-direction: row;
-    justify-self: start;
-    grid-column: 1/3;
-    align-self: center;
-    margin-left: 2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding: 1rem 0rem 1rem 0rem;
-}
-
-.h1wrap > h1{
-    font-size: 2rem;
-    display: inline-block;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    color: black;
-    border: 1px #bdc3c7 solid;
-    background-color: white;
-    padding: 0.8rem;
-    box-shadow: 0.5rem 0.5rem 0.3rem #636e72;
-}
-
-.h1wrap#left{
-    margin-left: 2rem;
-    grid-column: 1/5;
-    text-align: left;
-}
-.h1wrap#right{
-    margin-right: 2rem;
-    grid-column: 1/5;
-    text-align: right;
-    margin-top: 1rem;
-}
-
-.container2 > .center{
-    grid-column: 1/5;
-}
-
-.right{
-    grid-column: 3/5;
-    font-size: 1.3rem;
-    align-self: center;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    text-align: justify;
-}
-.right > :first-child{
-    font-size: 3rem;
-    text-align: left;
-}
-.right > .second{
-    font-size: 17px;
-    margin-bottom: 0.5rem;
-}
-.right > .third{
-    margin-bottom: 0.5rem;
-}
-.left > p{
-    margin-top: 1rem;
-    font-size: 20px;
-}
-
 .footer{
-    background-color: #222;
     color: white;
     padding: 1rem 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    background-color: #121212;
 }
-
 
 .footer > h1{
     display: inline-block;
     margin-right: 2rem;
     text-align: center;
-    margin-left: 2em;
 }
 .wrapper{
     display: flex;
     text-align: left;
-    background-color: #222;
     display: inline-block;
-    min-width: 500px;
+    min-width: 650px;
     list-style-type: none;
     overflow: hidden;
     height: 150px;
     font-size: 0;
-    font-family: 'Lato';
 }
 
 .tab{
     display: inline-block;
     height: 150px;
-    background-color: #222;
+    background-color: #121212;
     position: relative;
     overflow: hidden;
     width: 60px;
@@ -296,51 +263,36 @@ button::-moz-focus-inner {
     background-color: #292961;
 }
 
-.stuff{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
-    margin: 1rem 2rem 0 2rem;
-    grid-column: 1/5;
-}
-
-.stuff > a{
-    border: 1px teal solid;
-    height: 250px;
-    width: 250px;
-    border-radius: 10px;
-    vertical-align: bottom;
-    display: table-cell;
-    background-color: #dddddd;
-    background-image: url(resources/vue.png);
-    background-repeat: no-repeat;
-    background-position: center 20px;
-    background-size: 80%;
-    padding-top: 210px;
-    text-align: center;
-    color: black;
-}
-.stuff > a:hover:first-child{
-    background-color: #acacac;
-}
-.disabled{
-    pointer-events: none;
-    cursor: default;
-}
-
 @media only screen and (max-width: 900px){
+    .container1, .container2 > .inner{
+        clip-path: none;
+    }
+    .container1{
+        background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('./resources/bg.jpg');
+    }
+    #vm{
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    #cursor{
+        display: none;
+    }
+    .container1 > .inner{
+        text-align: center;
+        vertical-align: middle;
+        padding-right: 2rem;
+    }
+    #landing{
+        background: none;
+    }
     .footer > h1{
         display: block;
         margin-bottom: 1rem;
         text-align: center;
         margin-left: 2rem;
     }
-    .footer, .stuff > a{
+    .footer{
         display: block;
-    }
-    .stuff > a:not(:last-child){
-        margin-bottom: 2rem;
     }
     .tab{
         display: block;
@@ -364,32 +316,5 @@ button::-moz-focus-inner {
         width: 100%;
         border-bottom: 4px #222 solid;
     }
-    .container2, .stuff{
-        display: flex;
-        flex-direction: column;
-    }
-    .right > :first-child{
-        margin: 0;
-        padding: 0;
-    }
-    .left#first{
-        display: block;
-        padding: 0;
-        margin-top: 2rem;
-        align-self: center;
-        justify-self: middle;
-        margin-bottom: 0;
-    }
-    .img-circular{
-        display: inline-block;
-        border-radius: 0;
-        margin-right: 2rem;
-    }
-    .right{
-        padding: 0;
-        margin: 1rem 2rem 0 2rem;
-    }
-    .left#last{
-        align-self: flex-start;
-    }
 }
+
