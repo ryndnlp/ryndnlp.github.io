@@ -1,12 +1,23 @@
-var express = require('express')
-var path = require('path')
-var serveStatic = require('serve-static')
-var app = express()
+const express = require('express');
+const path = require('path');
+const history = require('connect-history-api-fallback');
 
-app.use(serveStatic(path.join(__dirname, 'dist')))
+const app = express();
 
-var port = process.env.PORT || 8080
+const staticFileMiddleware = express.static(path.join(__dirname + '/dist'));
 
-app.listen(port)
+app.use(staticFileMiddleware);
+app.use(history({
+  disableDotRule: true,
+  verbose: true
+}));
+app.use(staticFileMiddleware);
 
-console.log('server started ' + port)
+app.get('/', function (req, res) {
+  res.render(path.join(__dirname + '/dist/index.html'));
+});
+
+var server = app.listen(process.env.PORT || 8080, function () {
+  var port = server.address().port;
+  console.log("App now running on port", port);
+});
