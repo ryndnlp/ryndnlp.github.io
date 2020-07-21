@@ -1,19 +1,15 @@
 <template>
-  <nav>
-      <ul>
-          <router-link to="/projects/blog-project/">View Blogs</router-link>
-          <router-link to="/projects/blog-project/create">Add Blog</router-link>
-      </ul>
-  </nav>
+    <nav>
+        <ul>
+            <router-link to="/projects/blog/">View Blogs</router-link>
+            <router-link to="/projects/blog/create">Add Blog</router-link>
+        </ul>
+    </nav>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-
-    }
-  }
+   
 }
 </script>
 

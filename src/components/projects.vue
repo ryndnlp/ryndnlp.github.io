@@ -5,12 +5,9 @@
             <p>So much <span>free time</span>. Holiday is fun eh?</p>
         </div>
         <div id="container">
-            <router-link to="/projects/blog-project/" class="project">
-                <div id="blogicon" class="icon"></div>
-            </router-link>
-            <router-link to="/projects/extractor/" class="project">
-                <div id="extractoricon" class="icon"></div>
-            </router-link>
+            <router-link to="/projects/blog/" class="project" id="blogicon"></router-link>
+            <router-link to="/projects/extractor/" class="project" id="extractoricon"></router-link>
+            <router-link to="/projects/forecast/" class="project" id="forecast"></router-link>
         </div>
     </div>
 </template>
@@ -28,7 +25,6 @@ export default {
 *{
     color: #f2f2f2;
     text-align: center;
-
 }
 span{
     color: #03dac5;
@@ -38,43 +34,40 @@ span{
     flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
-    background-color: #121212;
     padding: 2rem;
 }
 #projects{
-    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 .project{
-    color: #03dac5;
-    background-color: #121212;
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     margin: 1.5rem;
     border: 1px #f2f2f2 solid;
     box-shadow: 0 0 15px #03dac5;
     background-size: contain;
     transition: all 0.2s ease-in-out 0s;
-    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.project:hover {
-    background-color: #f2f2f2;
-    color: #121212;
-}
-#blogicon:after{
-    content: '\f1ea';
-}
-.icon{
+    color: #00abcc;
     font-family: "Font Awesome 5 Free";
     font-size: 8rem;
-    color: #00abcc;
     font-weight: 800;
-    display: block;
 }
-#extractoricon:after{
+.project:hover {
+    background-color: #00abcc;
+    color: #f2f2f2;
+}
+#blogicon::after{
+    content: '\f1ea';
+}
+#extractoricon::after{
     content: '\f0c5';
+}
+#forecast::after{
+    content: '\f0c2';
 }
 #header > h1{
     font-size: 5rem;

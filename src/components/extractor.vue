@@ -1,80 +1,45 @@
 <template>
-  <div id="extractor">
-    <h1>Text File Extractor</h1>
-    <div id="container">
-        <label id="upload">Upload your file(s)!</label>
-        <input type="file" accept=".txt" @change="loadTextFromFile" multiple/>
-        <label id="keyword">Keyword:</label>
-        <input type="text" id="keyword" v-model="keyword" v-focus/>
-        <label id="algorithm">Choose the algorithm!</label>
-        <template v-for="a in availAlgorithm">
-            <span v-bind:key="a.key">
-                <input type="radio" v-model="algorithm" v-bind:value="a" name="algorithm" class="radio" checked/>
-                <label class="algorithm">{{ a }}</label>
-            </span>
-        </template>
-        <button v-bind:disabled="isDisabled" @click="findResult(keyword, texts), noResult = isNoResult, resFound = true, clear()">EXTRACT</button>
+    <div id="extractor">
+        <extractor-form @load="pushLoadedData($event)" @clearFiles="clear()" @formSubmitted="handleSubmit($event)"></extractor-form>
+        <extractor-result :resDistinct="resDistinct" :resFound="resFound" :noResult="noResult"></extractor-result>
     </div>
-    <div id="result" v-show="resFound">
-        <div id="noresult" v-show="noResult">
-            <div id="nores"></div>
-            <h1>No Result Found</h1>
-            <p>Sorry, we can't find any match for your search.</p>
-        </div>
-        <template v-if="!noResult">
-            <h1>Results</h1>
-            <div v-for="(result,index) in resDistinct" v-bind:key="result.key" class="res">
-                <h2>{{index+1}}. {{ result.text }}</h2>
-                <p>Tanggal: {{ result.time | beautify }}</p>
-                <p>Waktu: {{ result.hour | beautify }}</p>
-                <p>Jumlah: {{ result.num | beautify }}</p>
-                <p>Filename: {{ result.filename }}</p>
-            </div>
-        </template>
-    </div>
-  </div>
 </template>
 
 <script>
+import ExtractorForm from './extractorForm';
+import ExtractorResult from './extractorResult';
 export default {
+    components:{
+        'extractor-form': ExtractorForm,
+        'extractor-result': ExtractorResult
+    },
     data() {
         return {
-            texts: null,
-            availAlgorithm: ['Boyer-Moore', 'Knuth-Morris-Pratt'],
-            keyword: '',
             results: [],
             noResult: false,
             resFound: false,
-            algorithm: ''
+            texts: []
         }
     },
+    mounted(){
+        document.documentElement.style.backgroundColor = "#121212",
+        document.documentElement.style.minHeight = "100vh"
+    },
     methods: {
-        clear(){
-            this.algorithm = '',
-            this.keyword = ''
+        handleSubmit(value){
+            this.findResult(value[0], this.texts, value[1]);
         },
-        loadTextFromFile(ev) {
-            const files = ev.target.files
-
-            files.forEach(file => {
-                const reader = new FileReader();
-                this.texts = [];
-                reader.onload = (e) => {
-                    this.texts.push({
-                        content: e.target.result, 
-                        filename: file.name
-                    });
-                };
-                reader.readAsText(file);
-
-            });    
+        clear(){
+            this.texts = [];
+        },
+        pushLoadedData(fileObject){
+            this.texts.push(fileObject);
         },
         lastOccurence(pattern){
             let last = []
             for(let i=0;i<128;i++) last.push(-1);
             for(let i=0;i<pattern.length;i++)
-                last[pattern.charCodeAt(i)] = i
-    
+                last[pattern.charCodeAt(i)] = i;
             return last;
         },
         boyerMoore(pattern, text){
@@ -106,11 +71,11 @@ export default {
                 }
                 if(i > n-1) break;
             }
-            if(!res) return -1;
+            if(res.length === 0) return -1;
             else return res;
             
         },
-        findResult(pattern, texts){
+        findResult(pattern, texts, algorithm){
             const timeRegex = /(?:Senin|Selasa|Rabu|Kamis|Jumat|Jum'at|Sabtu|Minggu)?[,]?[\s]?[(]?(?:\d{1,2})[-/\s](?:Jan(?:uari)?|Feb(?:ruari)?|Mar(?:et)?|Apr(?:il)?|Mei|Jun(?:i)?|Jul(?:i)?|Agustus|Sep(?:tember)?|Okt(?:ober)?|Nov(?:ember)?|Des(?:ember)?){1}[\s]?(?:\d{1,2})?[-/)\s,]?(?:\d{2,4})?/g;
             const numRegex = /(?:\d{1,}[,.]?\d{1,}%?)[\s]?(?:juta|ribu)?[\s]?(?:orang|jiwa|penduduk|kasus|pasien){1}/g
             const hourRegex = /(?:pukul\s)?(?:\d{1,2}[:|.]{1}){1}(?:\d{1,2})(?:\sWI[B|TA|T])?/g
@@ -118,15 +83,13 @@ export default {
             this.results = [];
 
             texts.forEach(text => {
-                let results;
-                if(this.algorithm === 'Knuth-Morris-Pratt'){
+                let results = -1;
+                if(algorithm === 'Knuth-Morris-Pratt'){
                     results = this.kmpMatch(pattern, text.content);
                 }else{
                     results = this.boyerMoore(pattern, text.content);
-                }
-
+                }                
                 if(results !== -1){
-                    this.texts = [];
                     results.forEach(result => {
                         let res = this.findSentence(text.content, result);
                         let times;
@@ -151,6 +114,8 @@ export default {
                         this.results.push(retVal);
                     });
                 }
+                this.noResult = results === -1;
+                this.resFound = true;
             });
         },
         computeFail(pattern){
@@ -172,31 +137,29 @@ export default {
                     i+=1;
                 }
             }
-            return fail
+            return fail;
         },
         kmpMatch(pattern, text){
-            let m = pattern.length
-            let n = text.length 
-            let fail = this.computeFail(pattern)
-            let res = []
-            let i = 0
-            let j = 0
+            let m = pattern.length;
+            let n = text.length;
+            let fail = this.computeFail(pattern);
+            let res = [];
+            let i = 0;
+            let j = 0;
     
             while(i < n){ 
                 if (pattern[j] === text[i]){
                     i += 1;
                     j += 1;
                 }
-                    
                 if (j === m){
                     res.push(i-j);
                     j = fail[j-1];
                 }
                 else if(i < n && pattern[j] !== text[i]){
-                    if (j !== 0) j = fail[j-1] ;
+                    if (j !== 0) j = fail[j-1];
                     else i += 1;
                 }
-                    
             }
             if(res.length === 0) return -1;
             else return res;
@@ -238,59 +201,17 @@ export default {
         }
     },
     computed:{
-        isDisabled: function(){
-            return !this.keyword || !this.algorithm || this.texts === null;
-        },
-        isNoResult: function(){
-            return this.results[0] === undefined;
-        },
-        output: function(results){
-            results.map(result =>{
-                if (!("time" in result)) result.time = '-';
-                if (!("hour" in result)) result.time = '-';
-                if (!("num" in result)) result.time = '-';
-            });
-            return results;
-        },
         resDistinct: function(){
             let value = this.results;
             let retval = [];
             for(let i=0;i<this.results.length;i++){
-                if((!(JSON.stringify(this.results[i]) === JSON.stringify(this.results[i+1]))) && i!=this.results.length){
+                const before = JSON.stringify(this.results[i]);
+                const after = JSON.stringify(this.results[i+1]);
+                if(!(before === after) && i!=this.results.length){
                     retval.push(value[i]);
                 }
             }
             return retval;
-        }
-    },
-    mounted(){
-        document.documentElement.style.backgroundColor = "#121212",
-        document.documentElement.style.minHeight = "100vh"
-    },
-    directives: {
-        focus: {
-            inserted(el) {
-                el.focus();
-            }
-        }
-    },
-    filters: {
-        beautify: function(value){
-            if(value === undefined){
-                return '-';
-            }else if(value.length === 1){
-                return value[0];
-            }else{
-                let str = '';
-                for(let i=0;i<value.length;i++){
-                    if(value.length-1 === i){
-                        str += value[i];
-                    }else{
-                        str += value[i] + ', '
-                    }
-                }
-                return str;
-            }
         }
     }
 };
@@ -299,104 +220,7 @@ export default {
 <style scoped>
 
 #extractor{
-    padding: 2rem;
     color: #f2f2f2;
-}
-#result, #container{
-    padding: 2rem;
-    margin: 0 auto;
-    box-shadow: 0 0 10px #03dac5;
-    border: 1px #f2f2f2 solid;
-    margin-bottom: 3rem;
-}
-#container{
-    max-width: 500px;
-}
-#result{
-    max-width: 800px;
-}
-#upload, #keyword{
-    display: inline-block;
-}
-#algorithm{
-    display: block;
-    margin-bottom: 0.5rem;
-}
-#container > input:not(#keyword):not(.radio){
-    display: block;
-}
-
-label:not(#upload):not(#algorithm):not(#keyword){
-    padding: 1rem 0;
-}
-#keyword{
-    margin-top: 1rem;
-}
-#upload{
-    padding-bottom: 1rem;
-}
-#extractor > h1{
-    margin-bottom: 2rem;
-    text-align: center;
-}
-#result > h1{
-    text-align: center;
-}
-.radio{
-    margin-right: 0.5rem;
-    background-color: #03dac5;
-    display: inline-block;
-}
-#keyword{
-    margin-right: 0.5rem;
-}
-span{
-    display: block;
-}
-button{
-    margin-top: 0.5rem;
-    display: block;
-    background-color: #03dac5;
-    border: none;
-    padding: 5px 15px;
-    color: white;
-    padding: 0.3rem 2rem;
-    margin: 1rem auto 0 auto;
-    width: 40%;
-    height: 1.8rem;
-}
-button:disabled{
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-button:active{
-    opacity: 0.5;
-}
-input[type="text"] {
-  display: block;
-  width: 100%;
-  background: none;
-  border: none;
-  border-bottom: 2px #03dac5 solid;
-  color: #f2f2f2;
-  margin-bottom: 1rem;
-}
-#nores::before{
-    font-family: "Font Awesome 5 Free";
-    content: "\f05e";
-    font-size: 8rem;
-    font-weight: 700;
-    color: #b00020;
-}
-#nores, #noresult{
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-}
-.res{
-    margin-top: 2rem;
-}
-#noresult > h1{
-    margin: 0.5rem 0;
+    padding: 0 2rem;
 }
 </style>
