@@ -2,7 +2,7 @@
     <div id="question">
         <h1>Which province do you want to know the amount of corona cases?</h1>
         <input type="text" v-model="query" v-on:keyup.enter="sendForm(), clear()" v-focus/>
-        <p>try: 'Aceh' or 'Jakarta'</p>
+        <p>try: 'Aceh' or 'jakarta' or 'sumsel'</p>
     </div>
 </template>
 
