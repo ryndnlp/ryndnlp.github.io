@@ -11,6 +11,8 @@ import SingleBlog from './components/singleBlog';
 import Extractor from './components/extractor';
 //Forecast
 import Forecast from './components/forecast';
+//Corona
+import Corona from './components/corona';
 
 
 export default[
@@ -26,6 +28,7 @@ export default[
     },
     {path: '/projects/extractor', component: Extractor},
     {path: '/projects/forecast', component: Forecast},
+    {path: '/projects/corona', component: Corona}
 ]
 
 

@@ -90,7 +90,7 @@ export default {
             return newMatrix;
         },
         processData(count = 4){
-            const landData = this.data.filter(data => data.$.type === 'land');
+            const landData = this.dataBMKGFiltered.filter(data => data.$.type === 'land');
                 let i = 0;
                 let j = 0;
                 const result = landData.map(data => {
@@ -195,36 +195,7 @@ export default {
 *{
     color: #f2f2f2;
 }
-h1{
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-p{
-    margin-bottom: 2rem;
-    width: 100%;
-}
-#question{
-    margin: 0 auto;
-    max-width: 1000px;
-    min-height: 100vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-input[type="text"] {
-    display: block;
-    background: none;
-    border: none;
-    border-bottom: 2px #03dac5 solid;
-    color: #f2f2f2;
-    font-size: 15px;
-    font-size: 2rem;
-}
-
-textarea:focus, input:focus{
-    outline: none;
+#forecast{
+    padding: 0 2rem;
 }
 </style>

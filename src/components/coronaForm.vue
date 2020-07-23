@@ -1,8 +1,8 @@
 <template>
     <div id="question">
-        <h1>Which area do you want to know the weather forecast?</h1>
+        <h1>Which province do you want to know the amount of corona cases?</h1>
         <input type="text" v-model="query" v-on:keyup.enter="sendForm(), clear()" v-focus/>
-        <p>try: 'bandung' or 'Jawa tengah' or 'jaksel'</p>
+        <p>try: 'Aceh' or 'Jakarta'</p>
     </div>
 </template>
 
@@ -75,7 +75,7 @@ input:focus{
 }
 @media only screen and (max-width: 500px) {
     input[type="text"] {
-        width: 90%;
+        width: 100%;
     }
 }
 </style>

@@ -1,10 +1,15 @@
 <template>
     <div :class="{singleForecast: isSingle, mulForecast: !isSingle}">
-        <h1 v-if="citiesName().length === 1">{{citiesName()[0]}}</h1>
+        <template  v-if="citiesName.length === 1">
+            <h1>{{citiesName[0]}}</h1>
+            <p class="date">{{dataDate | dateFilter}}</p>
+        </template>
         <div :class="{singResult: isSingle, mulResult: !isSingle}" v-for="(value, index) in processedData" :key="index">
-            <h1 v-if="citiesName().length > 1">{{citiesName()[index]}}</h1>
+            <template  v-if="citiesName.length > 1">
+                <h1 v-if="citiesName.length > 1">{{citiesName[index]}}</h1>
+                <p>{{dataDate | dateFilter}}</p>
+            </template>
             <div :class="{singSegment: isSingle, mulSegment: !isSingle}" v-for="data in value.hourly" :key="data.key">
-                <p>{{data.date | dateFilter}}</p>
                 <p>{{data.time | timeFilter}}</p>
                 <template v-for="(param, pIndex) in data.hvalue">
                     <div :key="pIndex" v-if="param.unit === '%'">
@@ -28,6 +33,7 @@
                 </template>
             </div>
         </div>
+        <p id="source">Source: Badan Meteorologi Klimatologi dan Geofisika Indonesia</p>
     </div>
 </template>
 
@@ -36,10 +42,6 @@ export default {
     mounted(){
         document.documentElement.style.backgroundColor = "#121212";
         document.documentElement.style.minHeight = "100vh";
-    },
-    data() {
-        return{
-        }
     },
     props: [
         'processedData'
@@ -63,9 +65,6 @@ export default {
                 else if(val === 95 || val === 97) name = 'thunderstorm';
                 else name = 'weather';
             return images('./' + name + ".svg");
-        },
-        citiesName: function(){
-            return this.processedData.map(cityName => cityName.city);
         }
     },
     filters: {
@@ -78,15 +77,21 @@ export default {
     },
     computed: {
         isSingle: function(){
-            return this.citiesName().length === 1;
-        }            
+            return this.citiesName.length === 1;
+        },
+        citiesName: function(){
+            if(this.processedData) return this.processedData.map(cityName => cityName.city);
+            else return null;
+        },
+        dataDate: function(){
+            return this.processedData[0].hourly[0].date;
+        }       
     }
 }
 </script>
 
 <style scoped>
 *{
-    color: #f2f2f2;
     text-align: center;
 }
 h1{
@@ -95,6 +100,7 @@ h1{
 .multipleForecast, .singleForecast{
     margin: 0 auto;
     text-align: center;
+    padding: 0 2rem 2rem 2rem;
 }
 .mulIcons{
     height: 150px;
@@ -106,25 +112,21 @@ h1{
     margin: -10px 0
 }
 .mulResult{
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 2rem;
     margin: 2rem;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
     align-items: center;
 }
 .singResult{
-    display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 2rem;
     margin: 2rem;
+}
+.mulResult, .singResult{
+    margin: 0 auto;
+    justify-content: space-around;
     flex-wrap: wrap;
     max-width: 1000px;
-    margin: 0 auto;
+    display: flex;
+    padding: 2rem;
 }
 .mulSegment{
     height: 200px;
@@ -163,7 +165,14 @@ h1{
     content: "\00b0";
 }
 p{
-    font-size: 20px;
+    font-size: 24px;
 }
-
+#source, .date{
+    font-size: 30px;
+}
+@media only screen and (max-width: 800px) {
+    .multipleForecast, .singleForecast, .mulResult, .singResult{
+        padding: 0;
+    }
+}
 </style>

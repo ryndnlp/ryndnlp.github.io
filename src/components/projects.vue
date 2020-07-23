@@ -8,6 +8,7 @@
             <router-link to="/projects/blog/" class="project" id="blogicon"></router-link>
             <router-link to="/projects/extractor/" class="project" id="extractoricon"></router-link>
             <router-link to="/projects/forecast/" class="project" id="forecast"></router-link>
+            <router-link to="/projects/corona/" class="project" id="corona"></router-link>
         </div>
     </div>
 </template>
@@ -68,6 +69,9 @@ span{
 }
 #forecast::after{
     content: '\f0c2';
+}
+#corona::after{
+    content: '\f0fa';
 }
 #header > h1{
     font-size: 5rem;

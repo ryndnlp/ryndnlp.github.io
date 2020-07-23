@@ -1,5 +1,5 @@
 <template>
-    <div id="extractor">
+    <div>
         <extractor-form @load="pushLoadedData($event)" @clearFiles="clear()" @formSubmitted="handleSubmit($event)"></extractor-form>
         <extractor-result :resDistinct="resDistinct" :resFound="resFound" :noResult="noResult"></extractor-result>
     </div>
@@ -218,9 +218,10 @@ export default {
 </script>
 
 <style scoped>
-
-#extractor{
+*{
     color: #f2f2f2;
+}
+#extractor{
     padding: 0 2rem;
 }
 </style>
