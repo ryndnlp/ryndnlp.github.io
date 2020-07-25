@@ -72,6 +72,7 @@ span{
     content: '\f0fa';
 }
 #header > h1{
+    margin-top: 2rem;
     font-size: 5rem;
 }
 </style>

@@ -193,7 +193,4 @@ export default {
 *{
     color: #f2f2f2;
 }
-#forecast{
-    padding: 0 2rem;
-}
 </style>

@@ -31,4 +31,10 @@ video{
     height: 30%;
     width: 60%;
 }
+@media only screen and (max-width: 600px) {
+    video{
+        height: 60%;
+        width: 90%;
+    }
+}
 </style>

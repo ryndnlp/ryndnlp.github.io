@@ -126,7 +126,7 @@ h1{
 }
 .mulSegment{
     height: 200px;
-    width: 800px;
+    width: 80%;
     margin: 20px;
     display: flex;
     flex-direction: row;
@@ -166,9 +166,31 @@ p{
 #source, .date{
     font-size: 30px;
 }
+#source{
+    margin-bottom: 2rem;
+}
 @media only screen and (max-width: 800px) {
-    .multipleForecast, .singleForecast, .mulResult, .singResult{
+    .multipleForecast, .mulResult, .singResult, .singleForecast{
         padding: 0;
+    }
+    .mulSegment p{
+        font-size: 16px;
+    }
+    .mulIcons{
+        max-height: 50px;
+        max-width: 50px;
+    }
+    h1{
+        font-size: 2.5rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .mulSegment p{
+        font-size: 12px;
+    }
+    .mulIcons{
+        height: 40px;
+        width: 40px;
     }
 }
 </style>

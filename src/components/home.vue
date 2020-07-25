@@ -127,8 +127,6 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    padding-left: 2rem;
-    padding-bottom: 2rem;
 }
 .inner {
     display: table-cell;
@@ -318,6 +316,12 @@ a {
     background-color: #292961;
 }
 @media only screen and (max-width: 900px) {
+    .inner > h1{
+        transition: none;
+    }
+    .container1{
+        padding: 1rem;
+    }
     .container2 {
         padding: 1rem 2rem;
     }
