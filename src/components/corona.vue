@@ -1,6 +1,6 @@
 <template>
     <div id="corona">
-        <corona-form @formSubmitted="handleSubmit($event)"></corona-form>
+        <corona-form @formSubmitted="handleSubmit($event)" ref="form"></corona-form>
         <corona-result v-if="isCalled" :result="result" :lastUpdate="lastUpdate"></corona-result>
     </div>
 </template>
@@ -8,11 +8,8 @@
 <script>
 import CoronaForm from './coronaForm';
 import CoronaResult from './coronaResult';
+import resetMixin from '../mixins/resetMixin';
 export default {
-    mounted: function(){
-        document.documentElement.style.backgroundColor = "#121212";
-        document.documentElement.style.minHeight = "100vh";
-    },
     methods: {
         handleSubmit: function(query){
             this.processInput(query);
@@ -29,6 +26,7 @@ export default {
                     return;
                 }
             }
+            this.$refs.form.showAlert('error', 'We are pretty sure that area doesn\'t exist.', 'Please try again!');
             return;
         },
         getResult: function(key){
@@ -88,7 +86,8 @@ export default {
     components: {
         'corona-form': CoronaForm,
         'corona-result': CoronaResult
-    }
+    },
+    mixins: [resetMixin]
 }
 </script>
 

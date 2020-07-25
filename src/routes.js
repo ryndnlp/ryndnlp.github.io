@@ -2,6 +2,9 @@
 import Home from './components/home.vue';
 import Projects from './components/projects.vue';
 import NotFound from './components/notFound';
+///Highlights
+import Highlights from './components/highlights'
+///Projects
 //Blog
 import Blog from './components/blog';
 import CreateBlog from './components/createBlog.vue';
@@ -18,7 +21,6 @@ import Corona from './components/corona';
 export default[
     {path: '/', component: Home },
     {path: '/projects', component: Projects},
-    {path: '*', component: NotFound},
     {path: '', component: Blog, 
         children: [
             {path:'/projects/blog/create', component: CreateBlog},
@@ -28,7 +30,9 @@ export default[
     },
     {path: '/projects/extractor', component: Extractor},
     {path: '/projects/forecast', component: Forecast},
-    {path: '/projects/corona', component: Corona}
+    {path: '/projects/corona', component: Corona},
+    {path: '/highlights', component: Highlights},
+    {path: '*', component: NotFound}
 ]
 
 

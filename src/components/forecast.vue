@@ -1,6 +1,6 @@
 <template>
     <div id="forecast">
-        <forecast-form @formSubmitted="handleSubmit($event)"></forecast-form>
+        <forecast-form @formSubmitted="handleSubmit($event)" ref="form"></forecast-form>
         <forecast-result v-show="isCalled" :processedData="processedData"></forecast-result>
     </div>
 </template>
@@ -8,12 +8,8 @@
 <script>
 import ForecastForm from './forecastForm';
 import ForecastResult from './forecastResult';
-
-export default {
-    mounted: function(){
-        document.documentElement.style.backgroundColor = "#121212";
-        document.documentElement.style.minHeight = "100vh";
-    },
+import resetMixin from '../mixins/resetMixin';
+export default {    
     methods: {
         fetchData: async function(query){
             if(!query) return;
@@ -63,6 +59,7 @@ export default {
                 }
             }
             // Not found
+            this.$refs.form.showAlert('error', 'We are pretty sure that area doesn\'t exist.', 'Please try again!');
             return;
         },
         abbrArea(province, query){
@@ -187,7 +184,8 @@ export default {
     components:{
         'forecast-form': ForecastForm,
         'forecast-result': ForecastResult
-    }
+    },
+    mixins: [resetMixin]
 }
 </script>
 

@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import swalMixin from '../mixins/swalMixin';
 export default {
     data(){
         return{
@@ -63,7 +64,8 @@ export default {
                 el.focus();
             }
         }
-    }
+    },
+    mixins: [swalMixin]
 }
 </script>
 
@@ -76,6 +78,7 @@ export default {
     justify-content: center;
     max-width: 500px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 h1{
     text-align: center;

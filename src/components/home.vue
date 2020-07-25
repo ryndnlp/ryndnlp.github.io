@@ -1,24 +1,22 @@
 <template>
     <div>
-        <router-view></router-view>
         <div id="landing">
             <div class="container1">
                 <div class="inner">
-                    <h1>Welcome to My Website!</h1>
-                    <h1>
-                        My Name is
+                    <h1 data-aos="fade-left" data-aos-delay="0">Welcome to My Website!</h1>
+                    <h1 data-aos="fade-right" data-aos-delay="500">
+                        I'm
                         <span id="name">Ryan Daniel</span>
                     </h1>
-                    <button onclick="window.location.href = '#more';" id="vm">VIEW MORE</button>
                 </div>
             </div>
         </div>
         <div class="container2" id="more">
-            <p>My name is Ryan Daniel. I'm a second year Informatics student at Institut Teknologi Bandung. I always aspire to learn a lot about things related to Computer Science. Currently, I'm deeply interested to Front End Development.</p>
-            <div class="stuffs">
-                <router-link to="/projects/" id="projects"></router-link>
-                <a href="#" id="game"></a>
-                <a href="#" id="unknown"></a>
+            <p data-aos="fade">My name is Ryan Daniel. I'm a second year Informatics student at Institut Teknologi Bandung. I always aspire to learn a lot about things related to Computer Science. Currently, I'm deeply interested to Front End Development.</p>
+            <div class="stuffs" @mouseover="isHovering = true">
+                <router-link to="/projects/" id="projects" data-aos="fade-up" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></router-link>
+                <router-link to="/highlights/" id="game" data-aos="fade-up" data-aos-delay="500" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></router-link>
+                <a href="#" id="unknown" data-aos="fade-up" data-aos-delay="1000" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></a>
             </div>
         </div>
     <div class="footer">
@@ -26,7 +24,7 @@
             <ul class="wrapper">
                 <li class="tab">
                     <div class="sm line">
-                        <a hthis="https://line.me/ti/p/ryndnlp" target="_blank"></a>
+                        <a href="https://line.me/ti/p/ryndnlp" target="_blank"></a>
                     </div>
                     <div class="content">
                         <h1>Line</h1>
@@ -35,7 +33,7 @@
                 </li>
                 <li class="tab">
                     <div class="sm instagram">
-                        <a hthis="https://www.instagram.com/ryndnlp/" target="_blank"></a>
+                        <a href="https://www.instagram.com/ryndnlp/" target="_blank"></a>
                     </div>
                     <div class="content">
                         <h1>Instagram</h1>
@@ -44,7 +42,7 @@
                 </li>
                 <li class="tab">
                     <div class="sm linkedin">
-                        <a hthis="https://www.linkedin.com/in/ryandanielp" target="_blank"></a>
+                        <a href="https://www.linkedin.com/in/ryandanielp" target="_blank"></a>
                     </div>
                     <div class="content">
                         <h1>LinkedIn</h1>
@@ -56,7 +54,7 @@
                 </li>
                 <li class="tab">
                     <div class="sm github">
-                        <a hthis="https://github.com/ryndnlp" target="_blank"></a>
+                        <a href="https://github.com/ryndnlp" target="_blank"></a>
                     </div>
                     <div class="content">
                         <h1>GitHub</h1>
@@ -68,7 +66,7 @@
                 </li>
                 <li class="tab" id="last">
                     <div class="sm gitlab">
-                        <a hthis="https://gitlab.informatika.org/ryndnlp" target="_blank"></a>
+                        <a href="https://gitlab.informatika.org/ryndnlp" target="_blank"></a>
                     </div>
                     <div class="content">
                         <h1>GitLab</h1>
@@ -83,11 +81,11 @@
 <script>
 export default {
     data(){
-        return{
-
+        return {
+            isHovering: false
         }
     }
-};
+}
 </script>
 
 <style scoped>
@@ -102,16 +100,16 @@ export default {
     margin: 0 auto;
 }
 #landing {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url("../assets/ryan.png");
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    max-width: 100%;
-    background-color: #03dac5;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../assets/picture/bg.jpg");
+}
+img{
+    width: 500px;
+    height: 500px;
 }
 a {
-    background-color: inherit;
     text-align: center;
     text-decoration: none;
 }
@@ -125,46 +123,21 @@ a {
     display: table;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-                    url("../assets/bg.jpg");
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
     padding-left: 2rem;
     padding-bottom: 2rem;
-    clip-path: polygon(0 100%, 0 0, 75% 0, 25% 100%);
 }
-.container1 > .inner {
+.inner {
     display: table-cell;
     vertical-align: middle;
-    text-align: left;
+    font-size: 30px;
 }
-#vm {
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    background: none;
+.trans{
+    transition: all 0.3s ease-in-out 0s;
 }
-
-button::-moz-focus-inner {
-    border: 0;
-}
-
-button {
-    border: 0;
-    display: block;
-    color: #f2f2f2;
-    border: 2px #f2f2f2 solid;
-    padding: 0.7rem 1.6rem;
-    transition: all 0.3s ease-out 0s;
-}
-
-#vm:hover {
-    color: #f2f2f2;
-    background-color: #03dac5;
-}
-
 .container2 {
     background-color: #121212;
     padding: 3rem;
@@ -216,7 +189,7 @@ button {
     background-color: #00abcc;
 }
 .footer {
-    color: #f2f2f2;
+    color: #121212;
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -228,6 +201,7 @@ button {
     display: inline-block;
     margin-right: 2rem;
     text-align: center;
+    color: #f2f2f2;
 }
 .wrapper {
     display: flex;
@@ -240,7 +214,7 @@ button {
     font-size: 0;
 }
 
-.tab {
+.tab{
     display: inline-block;
     height: 150px;
     background-color: #121212;
@@ -248,18 +222,17 @@ button {
     overflow: hidden;
     width: 60px;
     border-left: 4px #03dac5 solid;
-    color: #121212;
     transition: all 0.5s ease-in-out 0.1s;
 }
 
-.tab:hover {
+.tab:hover{
     width: 350px;
     border: 0;
     transition: all 0.5s ease-in-out 0.1s;
     border-left: 4px #03dac5 solid;
 }
 
-.tab > .content {
+.tab > .content{
     background-color: #f2f2f2;
     height: 150px;
     width: 290px;
@@ -270,25 +243,24 @@ button {
     padding-right: 0.5rem;
 }
 
-.tab > .content > h1 {
+.tab > .content > h1{
     margin-bottom: 0.5rem;
     font-size: 2rem;
 }
 
-.tab > .content > p {
+.tab > .content > p{
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1rem;
     text-align: justify;
 }
-.tab:hover > .sm a::before {
+.tab:hover > .sm a::before{
     margin-left: -3.8rem;
 }
-.tab:hover > .sm a::after {
+.tab:hover > .sm a::after{
     margin-left: 0rem;
 }
-.sm a::after,
-.sm a::before {
+.sm a::after, .sm a::before{
     transition: all 0.5s ease-in-out 0.1s;
     width: 60px;
     height: 150px;
@@ -297,83 +269,61 @@ button {
     align-items: center;
     justify-content: center;
     font: normal 2rem "Font Awesome 5 Brands";
-    font-style: normal;
-    font-size: 2rem;
     color: #f2f2f2;
     position: absolute;
+    cursor: pointer;
     font-weight: 300;
 }
-.sm a::after {
+.sm a::after{
     margin-left: 60px;
     font-size: 3rem;
 }
-.line a::after,
-.line a::before {
-    content: "\f3c0";
+.line a::after, .line a::before{
+    content: '\f3c0';
+    
 }
 
-.line a::after {
+.line a::after{
     background-color: #00c300;
 }
 
-.instagram a::after,
-.instagram a::before {
-    content: "\f16d";
+.instagram a::after, .instagram a::before{
+    content: '\f16d';
 }
 
-.instagram a::after {
-    background-image: linear-gradient(45deg,#515bd4,#8134af,#dd2a7b,#feda77,#f58529);
+.instagram a::after{
+    background-image: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #feda77, #f58529);
 }
-.linkedin a::after,
-.linkedin a::before {
-    content: "\f0e1";
+.linkedin a::after, .linkedin a::before{
+    content: '\f0e1';
 }
 
-.linkedin a::after {
+.linkedin a::after{
     background-color: #0e76a8;
 }
 
-.github a::after,
-.github a::before {
-    content: "\f09b";
+.github a::after, .github a::before{
+    content: '\f09b';
 }
 
-.github a::after {
+.github a::after{
     background-color: #333;
 }
 
-.gitlab a::after,
-.gitlab a::before {
-    content: "\f296";
+.gitlab a::after, .gitlab a::before{
+    content: '\f296';
 }
 
-.gitlab a::after {
+.gitlab a::after{
     background-color: #292961;
 }
-
 @media only screen and (max-width: 900px) {
-    .container1,
-    .container2 > .inner {
-            clip-path: none;
-    }
     .container2 {
         padding: 1rem 2rem;
     }
     .container2 > p {
         margin: 0 1rem;
         margin-top: 2rem;
-    }
-    .container1 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-        url("../assets/bg.jpg");
-    }
-    .container1 > .inner {
-        text-align: center;
-        vertical-align: middle;
-        padding-right: 2rem;
-    }
-    #landing {
-        background: none;
     }
     .footer > h1 {
         display: block;
@@ -412,9 +362,6 @@ button {
         width: 100%;
         border-bottom: 4px #121212 solid;
         border-left: 4px #f2f2f2 solid;
-    }
-    #vm{
-        margin: 1rem auto;
     }
 }
 </style>

@@ -27,16 +27,13 @@
 
 <script>
 import searchMixin from "../mixins/searchMixin";
+import resetMixin from '../mixins/resetMixin';
 export default {
     data() {
         return {
             blogs: [],
             search: ""
         }
-    },
-    mounted: function() {
-        document.body.style.minHeight = "100vh",
-        document.documentElement.style.backgroundColor = "#121212"
     },
     created() {
         const axios = require("axios");
@@ -79,7 +76,7 @@ export default {
         return value;
         }
     },
-    mixins: [searchMixin]
+    mixins: [searchMixin, resetMixin]
 };
 </script>
 

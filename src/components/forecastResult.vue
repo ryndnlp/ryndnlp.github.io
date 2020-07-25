@@ -1,27 +1,27 @@
 <template>
-    <div :class="{singleForecast: isSingle, mulForecast: !isSingle}">
-        <template  v-if="citiesName.length === 1">
-            <h1>{{citiesName[0]}}</h1>
-            <p class="date">{{dataDate | dateFilter}}</p>
+    <div :class="{singleForecast: isSingle, multipleForecast: !isSingle}">
+        <template v-if="citiesName.length === 1">
+            <h1 data-aos="fade" data-aos-delay="0">{{citiesName[0]}}</h1>
+            <p class="date" data-aos="fade">{{dataDate | dateFilter}}</p>
         </template>
         <div :class="{singResult: isSingle, mulResult: !isSingle}" v-for="(value, index) in processedData" :key="index">
-            <template  v-if="citiesName.length > 1">
-                <h1 v-if="citiesName.length > 1">{{citiesName[index]}}</h1>
+            <template v-if="citiesName.length > 1">
+                <h1 v-if="citiesName.length > 1" data-aos="fade" data-aos-delay="0">{{citiesName[index]}}</h1>
                 <p>{{dataDate | dateFilter}}</p>
             </template>
-            <div :class="{singSegment: isSingle, mulSegment: !isSingle}" v-for="data in value.hourly" :key="data.key">
+            <div data-aos="fade-up" :class="{singSegment: isSingle, mulSegment: !isSingle}" v-for="data in value.hourly" :key="data.key">
                 <p>{{data.time | timeFilter}}</p>
                 <template v-for="(param, pIndex) in data.hvalue">
                     <div :key="pIndex" v-if="param.unit === '%'">
-                        <img src="../assets/drop.svg" :key="pIndex" class="img">
+                        <img src="../assets/weather/drop.svg" :key="pIndex" class="img">
                         <p class="icontext">{{param.value}}{{param.unit}}</p>
                     </div>
                     <div :key="pIndex" v-else-if="param.unit === 'deg'">
-                        <img src="../assets/compass.svg" :key="pIndex" class="img">
+                        <img src="../assets/weather/compass.svg" :key="pIndex" class="img">
                         <p class="icontext">{{param.value}}{{param.unit}}</p>
                     </div>
                     <div :key="pIndex" v-else-if="param.unit === 'Kt'">
-                        <img src="../assets/wind.svg" :key="pIndex" class="img">
+                        <img src="../assets/weather/wind.svg" :key="pIndex" class="img">
                         <p class="icontext">{{param.value}}{{param.unit}}</p>
                     </div>
                     <template v-else>
@@ -39,17 +39,13 @@
 
 <script>
 export default {
-    mounted(){
-        document.documentElement.style.backgroundColor = "#121212";
-        document.documentElement.style.minHeight = "100vh";
-    },
     props: [
         'processedData'
     ],
     methods:{
         getImgUrl(value) {
             const val = parseInt(value, 10);
-            const images = require.context('../assets/', false, /\.svg$/);
+            const images = require.context('../assets/weather', false, /\.svg$/);
             let name;
                 if(val === 100 || val === 0) name = 'clear';    
                 else if(val === 101 || val === 1 || val === 2 || val === 102) name = 'clear-cloudy';    
@@ -64,7 +60,7 @@ export default {
                 else if(val === 80) name = 'isolated-rain';
                 else if(val === 95 || val === 97) name = 'thunderstorm';
                 else name = 'weather';
-            return images('./' + name + ".svg");
+            return images('./' + name + '.svg');
         }
     },
     filters: {

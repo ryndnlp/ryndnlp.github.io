@@ -7,12 +7,9 @@
 </template>
 
 <script>
-
+import swalMixin from '../mixins/swalMixin';
+import resetMixin from '../mixins/resetMixin';
 export default {
-    mounted: function(){
-        document.documentElement.style.backgroundColor = "#121212";
-        document.documentElement.style.minHeight = "100vh";
-    },
     data() {
         return {
             query: '',
@@ -33,7 +30,8 @@ export default {
         clear: function(){
             this.query = '';
         }
-    }
+    },
+    mixins: [swalMixin, resetMixin]
 }
 </script>
 

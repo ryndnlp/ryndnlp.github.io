@@ -6,13 +6,15 @@
         <p id="content">{{ blog.content }}</p>
         <p id="related">Related to: </p>
         <ul>
-            <li v-for="(c, index) in blog.categories" v-bind:key="c.key">{{ c }}<span v-if="index != blog.categories.length - 1">, </span> 
+            <li v-for="(c, index) in blog.categories" v-bind:key="c.key">{{ c }}
+                <span v-if="index != blog.categories.length - 1">, </span> 
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+import resetMixin from '../mixins/resetMixin';
 export default {
     data(){
         return {
@@ -28,10 +30,7 @@ export default {
             this.blog = response.data;
         });
     },
-    mounted: function(){
-    document.documentElement.style.minHeight = "100vh",
-    document.documentElement.style.backgroundColor = "#121212"
-  }
+    mixins: [resetMixin]
 }
 </script>
 

@@ -17,11 +17,8 @@
             <select v-model="blog.author" id="blog-author">
                 <option v-for="author in authors" v-bind:value="author" v-bind:key="author.key">{{ author }}</option>
             </select>
-            <button v-bind:disabled="this.isDisabled" v-on:click.prevent="setDate(), post()">Submit</button>
+            <button v-on:click.prevent="setDate(), post()">Submit</button>
         </form>
-        <div id="post" v-if="this.submitted">
-            <h3>Thanks for submitting the blog!</h3>
-        </div>
         <div id="preview">
             <h1>Blog preview</h1>
             <p>Title: {{ blog.title }}</p>
@@ -37,72 +34,80 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                blog: {
-                    title: "",
-                    content: "",
-                    categories: [],
-                    author: "",
-                    postDate: ""
-                },
-                authors: ["Ryan Daniel", "Ryan's friend", "Anonymous"],
-                submitted: false,
-                availableCategories: [
-                    "Informatics",
-                    "Organization",
-                    "Community Service",
-                    "Daily"
-                ]
-            };
-        },
-        methods: {
-            async post() {
+import swalMixin from '../mixins/swalMixin';
+import resetMixin from '../mixins/resetMixin';
+export default {
+    data() {
+        return {
+            blog: {
+                title: "",
+                content: "",
+                categories: [],
+                author: "",
+                postDate: ""
+            },
+            authors: ["Ryan Daniel", "Ryan's friend", "Anonymous"],
+            submitted: false,
+            availableCategories: [
+                "Informatics",
+                "Organization",
+                "Community Service",
+                "Daily"
+            ]
+        };
+    },
+    methods: {
+        async post() {
+            if(!this.isDisabled){
                 const axios = require("axios");
-                const res = await axios
+                await axios
                 .post("https://vue-project-dff2e.firebaseio.com/posts.json", this.blog);
-                this.submitted = true;
-                return res;
-            },
-            getDate() {
-                const today = new Date();
-                const date =
-                    today.getFullYear() +
-                    "-" +
-                    (today.getMonth() + 1) +
-                    "-" +
-                    today.getDate();
-                return date;
-            },
-            setDate() {
-                const today = new Date();
-                const date =
-                    today.getFullYear() +
-                    "-" +
-                    (today.getMonth() + 1) +
-                    "-" +
-                    today.getDate();
-                this.blog.postDate = date;
+                this.showAlert('success', 'Post was submitted successfully.', 'Thank you!');
+            }else{
+                this.showAlert('error', 'Please complete the form first.', 'Thank you!');
             }
         },
-        computed: {
-            isDisabled: function () {
-                return !this.blog.title || !this.blog.content || !this.blog.author;
-            }
+        getDate() {
+            const today = new Date();
+            const date =
+                today.getFullYear() +
+                "-" +
+                (today.getMonth() + 1) +
+                "-" +
+                today.getDate();
+            return date;
         },
-        directives: {
-            focus: {
-                inserted(el) {
-                    el.focus();
-                }
-            }
+        setDate() {
+            const today = new Date();
+            const date =
+                today.getFullYear() +
+                "-" +
+                (today.getMonth() + 1) +
+                "-" +
+                today.getDate();
+            this.blog.postDate = date;
         },
-        mounted: function () {
-            (document.documentElement.style.backgroundColor = "#121212"),
-            (document.documentElement.style.minHeight = "100vh");
+        clear(){
+            this.title = '';
+            this.categories = [];
+            this.content = '',
+            this.author = ''
         }
-    }
+    },
+    computed: {
+        isDisabled: function () {
+            return !this.blog.title || !this.blog.content || !this.blog.author;
+        }
+    },
+    directives: {
+        focus: {
+            inserted(el) {
+                el.focus();
+            }
+        }
+    },
+    mixins: [swalMixin, resetMixin]
+}
 </script>
 
 <style scoped>
@@ -194,12 +199,6 @@ button {
     padding: 5px 15px;
     color: white;
 }
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 ::placeholder {
     color: #f2f2f2;
     opacity: 1;

@@ -1,13 +1,14 @@
 <template>
     <div>
-        <extractor-form @load="pushLoadedData($event)" @clearFiles="clear()" @formSubmitted="handleSubmit($event)"></extractor-form>
-        <extractor-result :resDistinct="resDistinct" :resFound="resFound" :noResult="noResult"></extractor-result>
+        <extractor-form @load="pushLoadedData($event)" @clearFiles="clear()" @formSubmitted="handleSubmit($event)" ref="form"></extractor-form>
+        <extractor-result :resDistinct="resDistinct" :resFound="resFound"></extractor-result>
     </div>
 </template>
 
 <script>
 import ExtractorForm from './extractorForm';
 import ExtractorResult from './extractorResult';
+import resetMixin from '../mixins/resetMixin';
 export default {
     components:{
         'extractor-form': ExtractorForm,
@@ -16,14 +17,9 @@ export default {
     data() {
         return {
             results: [],
-            noResult: false,
             resFound: false,
             texts: []
         }
-    },
-    mounted(){
-        document.documentElement.style.backgroundColor = "#121212",
-        document.documentElement.style.minHeight = "100vh"
     },
     methods: {
         handleSubmit(value){
@@ -114,8 +110,12 @@ export default {
                         this.results.push(retVal);
                     });
                 }
-                this.noResult = results === -1;
-                this.resFound = true;
+                if(results === -1){
+                    this.$refs.form.showAlert('error', 'No result found!', 'Sorry, we can\'t find any match for your search.');
+                    this.resFound = false;
+                }else{
+                    this.resFound = true;
+                }
             });
         },
         computeFail(pattern){
@@ -213,7 +213,8 @@ export default {
             }
             return retval;
         }
-    }
+    },
+    mixins: [resetMixin]
 };
 </script>
 

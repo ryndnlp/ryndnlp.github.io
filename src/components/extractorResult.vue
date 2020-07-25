@@ -1,20 +1,13 @@
 <template>
     <div id="result" v-show="resFound">
-        <div id="noresult" v-show="noResult" >
-            <div id="nores"></div>
-            <h1>No Result Found</h1>
-            <p>Sorry, we can't find any match for your search.</p>
+        <h1>Results</h1>
+        <div v-for="(result,index) in resDistinct" :key="result.key" class="res">
+            <h2>{{index+1}}. {{ result.text }}</h2>
+            <p>Tanggal: {{ result.time | resFilter }}</p>
+            <p>Waktu: {{ result.hour | resFilter }}</p>
+            <p>Jumlah: {{ result.num | resFilter }}</p>
+            <p>Filename: {{ result.filename }}</p>
         </div>
-        <template v-if="!noResult">
-            <h1>Results</h1>
-            <div v-for="(result,index) in resDistinct" :key="result.key" class="res">
-                <h2>{{index+1}}. {{ result.text }}</h2>
-                <p>Tanggal: {{ result.time | resFilter }}</p>
-                <p>Waktu: {{ result.hour | resFilter }}</p>
-                <p>Jumlah: {{ result.num | resFilter }}</p>
-                <p>Filename: {{ result.filename }}</p>
-            </div>
-        </template>
     </div>
 </template>
 
@@ -43,7 +36,7 @@ export default {
             }
         }
     },
-    props: ['resDistinct', 'resFound', 'noResult']
+    props: ['resDistinct', 'resFound']
 }
 </script>
 
@@ -62,22 +55,7 @@ export default {
 #result > h1{
     text-align: center;
 }
-#nores::before{
-    font-family: "Font Awesome 5 Free";
-    content: "\f05e";
-    font-size: 8rem;
-    font-weight: 700;
-    color: #b00020;
-}
-#nores, #noresult{
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-}
 .res{
     margin-top: 2rem;
-}
-#noresult > h1{
-    margin: 0.5rem 0;
 }
 </style>
