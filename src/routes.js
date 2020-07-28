@@ -2,8 +2,7 @@
 import Home from './components/home.vue';
 import Projects from './components/projects.vue';
 import NotFound from './components/notFound';
-///Highlights
-import Highlights from './components/highlights'
+
 ///Projects
 //Blog
 import Blog from './components/blog';
@@ -31,7 +30,6 @@ export default[
     {path: '/projects/extractor', component: Extractor},
     {path: '/projects/forecast', component: Forecast},
     {path: '/projects/corona', component: Corona},
-    {path: '/highlights', component: Highlights},
     {path: '*', component: NotFound}
 ]
 

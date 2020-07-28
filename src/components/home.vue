@@ -15,7 +15,7 @@
             <p data-aos="fade">My name is Ryan Daniel. I'm a second year Informatics student at Institut Teknologi Bandung. I always aspire to learn a lot about things related to Computer Science. Currently, I'm deeply interested to Front End Development.</p>
             <div class="stuffs" @mouseover="isHovering = true">
                 <router-link to="/projects/" id="projects" data-aos="fade-up" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></router-link>
-                <router-link to="/highlights/" id="game" data-aos="fade-up" data-aos-delay="500" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></router-link>
+                <a href="#" id="game" data-aos="fade-up" data-aos-delay="500" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></a>
                 <a href="#" id="unknown" data-aos="fade-up" data-aos-delay="1000" :style="{'transition': isHovering? 'all 0.3s ease-out 0s': ''}"></a>
             </div>
         </div>
