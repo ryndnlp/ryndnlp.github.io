@@ -6,19 +6,13 @@
 
 <script>
 export default {
-    data(){
-        return{
-            delay: 0
-        }
-    },
     mounted: function(){
         document.documentElement.style.backgroundColor = "#121212";
         document.documentElement.style.minHeight = "100vh";
-        this.showAlert()
+        this.showAlert();
     },
     methods: {
         redirect(){
-            clearTimeout(this.delay);
             this.$router.push("/");
         },
         showAlert: function(){
