@@ -19,7 +19,8 @@ import Corona from './components/corona';
 
 export default[
     {path: '/', component: Home },
-    {path: '*', component: NotFound},
+    {path: '/404', component: NotFound },  
+    {path: '*', redirect: '/404'},
     {path: '/projects', component: Projects},
     {path: '', component: Blog, 
         children: [

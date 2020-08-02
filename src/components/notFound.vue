@@ -19,7 +19,7 @@ export default {
     methods: {
         redirect(){
             clearTimeout(this.delay);
-            this.$router.push({path: "/"}).bind(this);
+            this.$router.push({path: "/"});
         },
         showAlert: function(){
             this.$swal({

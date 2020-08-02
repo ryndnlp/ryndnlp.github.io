@@ -1,5 +1,5 @@
 <template>
-    <div id="single-blog">
+    <div id="single-blog" v-if="isFound">
         <h1>{{ blog.title }}</h1>
         <p id="author">{{ blog.author }}</p>
         <p id="date">{{ blog.postDate }}</p>
@@ -18,7 +18,8 @@ export default {
     data(){
         return {
             id: this.$route.params.id,
-            blog:{}
+            blog:{},
+            isFound: false
         }
     },
     created(){
@@ -26,7 +27,11 @@ export default {
         axios
         .get('https://vue-project-dff2e.firebaseio.com/posts/' + this.id + '.json')
         .then(response => {
-            this.blog = response.data;
+            if(response.data) {
+                this.blog = response.data;
+                this.isFound = true;
+            }
+            else return this.$router.push('/404');
         });
     }
 }
