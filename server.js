@@ -1,5 +1,12 @@
-var connect = require("connect");
+var express = require('express')
+var path = require('path')
+var serveStatic = require('serve-static')
+var app = express()
 
-var app = connect().use(connect.static(__dirname + '/public'));
+app.use(serveStatic(path.join(__dirname, 'dist')))
 
-app.listen(8180);
+var port = process.env.PORT || 8080
+
+app.listen(port)
+
+console.log('server started ' + port)
