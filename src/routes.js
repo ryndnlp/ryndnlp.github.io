@@ -18,8 +18,8 @@ import Corona from './components/corona';
 
 
 export default[
-    {path: '*', component: NotFound},
     {path: '/', component: Home },
+    {path: '*', component: NotFound},
     {path: '/projects', component: Projects},
     {path: '', component: Blog, 
         children: [
