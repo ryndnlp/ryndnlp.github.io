@@ -13,10 +13,6 @@
 
 <script>
 export default {
-    data(){
-        return{
-        }
-    },
     filters: {
         resFilter: function(value){
             if(value === undefined){

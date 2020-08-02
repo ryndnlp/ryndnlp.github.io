@@ -319,6 +319,9 @@ a {
     .inner > h1{
         transition: none;
     }
+    .stuffs > * {
+        transition-delay: 0;
+    }
     .container1{
         padding: 1rem;
     }

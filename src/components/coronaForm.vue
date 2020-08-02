@@ -8,7 +8,6 @@
 
 <script>
 import swalMixin from '../mixins/swalMixin';
-import resetMixin from '../mixins/resetMixin';
 export default {
     data() {
         return {
@@ -31,7 +30,7 @@ export default {
             this.query = '';
         }
     },
-    mixins: [swalMixin, resetMixin]
+    mixins: [swalMixin]
 }
 </script>
 

@@ -1,14 +1,10 @@
 <template>
-  <div id="container">
-      <div id="logo"></div>
-      <h1>404 - Page Not Found</h1>
-      <p>Sorry, but the page you are looking for are not available! We will redirect you in a second.</p>
-      <button @click="redirect()">GO TO HOMEPAGE</button>
-  </div>
+    <div id="container">
+        
+    </div>
 </template>
 
 <script>
-
 export default {
     data(){
         return{
@@ -18,19 +14,20 @@ export default {
     mounted: function(){
         document.documentElement.style.backgroundColor = "#121212";
         document.documentElement.style.minHeight = "100vh";
-    },
-    created(){
-        this.delay = 5000;
-            
-        setTimeout(function () {
-                    this.$router.push({path: "/"});
-        }.bind(this), 
-        this.delay);
+        this.showAlert()
     },
     methods: {
         redirect(){
             clearTimeout(this.delay);
             this.$router.push({path: "/"}).bind(this);
+        },
+        showAlert: function(){
+            this.$swal({
+                icon: 'info',
+                title: '404 Page not Found!',
+                text: 'Sorry, the page you are looking for are not available.',
+                confirmButtonText: 'Redirect'
+            }).then(() => this.redirect());
         }
     }
 }

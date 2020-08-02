@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-import '../src/fontawesome/css/all.css'
+import '../src/fontawesome/css/brands.css'
+import '../src/fontawesome/css/solid.css'
 import Routes from './routes'
 import VueRouter from 'vue-router'
 import "@/assets/main.css"

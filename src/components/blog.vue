@@ -7,11 +7,12 @@
 
 <script>
 import BlogHeader from './blogHeader'
-
+import resetMixin from '../mixins/resetMixin';
 export default {
     components:{
         'blog-header': BlogHeader
-    }
+    },
+    mixins: [resetMixin]
 }
 </script>
 

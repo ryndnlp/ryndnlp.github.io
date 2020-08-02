@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         isDisabled: function(){
-            return !this.keyword || !this.algorithm || this.texts === null;
+            return !this.keyword || !this.algorithm || !this.texts;
         }
     },
     methods: {

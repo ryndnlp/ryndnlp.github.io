@@ -1,7 +1,7 @@
 <template>
     <div id="add-blog">
         <h1>Add a New Blog Post</h1>
-        <form v-if="!this.submitted">
+        <form>
             <label for="title">Title:</label>
             <input type="text" v-model.lazy="blog.title" v-focus />
             <label for="checkboxes">Categories?</label>
@@ -35,7 +35,6 @@
 
 <script>
 import swalMixin from '../mixins/swalMixin';
-import resetMixin from '../mixins/resetMixin';
 export default {
     data() {
         return {
@@ -47,7 +46,6 @@ export default {
                 postDate: ""
             },
             authors: ["Ryan Daniel", "Ryan's friend", "Anonymous"],
-            submitted: false,
             availableCategories: [
                 "Informatics",
                 "Organization",
@@ -106,7 +104,7 @@ export default {
             }
         }
     },
-    mixins: [swalMixin, resetMixin]
+    mixins: [swalMixin]
 }
 </script>
 

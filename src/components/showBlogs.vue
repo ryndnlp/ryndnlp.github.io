@@ -27,7 +27,6 @@
 
 <script>
 import searchMixin from "../mixins/searchMixin";
-import resetMixin from '../mixins/resetMixin';
 export default {
     data() {
         return {
@@ -76,7 +75,7 @@ export default {
         return value;
         }
     },
-    mixins: [searchMixin, resetMixin]
+    mixins: [searchMixin]
 };
 </script>
 

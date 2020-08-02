@@ -15,10 +15,8 @@
 </template>
 
 <script>
-import resetMixin from '../mixins/resetMixin';
 export default {
-    props: ['result', 'lastUpdate'],
-    mixins: [resetMixin]
+    props: ['result', 'lastUpdate']
 }
 </script>
 

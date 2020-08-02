@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import resetMixin from '../mixins/resetMixin';
 export default {
     data(){
         return {
@@ -29,8 +28,7 @@ export default {
         .then(response => {
             this.blog = response.data;
         });
-    },
-    mixins: [resetMixin]
+    }
 }
 </script>
 

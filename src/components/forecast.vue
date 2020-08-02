@@ -1,7 +1,7 @@
 <template>
     <div id="forecast">
         <forecast-form @formSubmitted="handleSubmit($event)" ref="form"></forecast-form>
-        <forecast-result v-show="isCalled" :processedData="processedData"></forecast-result>
+        <forecast-result v-show="isCalled" :processedData="processData()"></forecast-result>
     </div>
 </template>
 
@@ -159,17 +159,17 @@ export default {
     },
     computed: {   
         dataBMKGFiltered: function(){
-            const filtered = this.data
-            .filter((element, index, arr) => {
-                return arr.indexOf(element) === index;
-            })
-            .filter(element => {
-                return element.parameter !== null;
-            });
-            return filtered;
-        },
-        processedData: function(){
-            return this.processData();
+            if(this.data){
+                const filtered = this.data
+                .filter((element, index, arr) => {
+                    return arr.indexOf(element) === index;
+                })
+                .filter(element => {
+                    return element.parameter !== null;
+                });
+                return filtered;
+            }
+            return null; 
         }
     },
     created: async function(){
